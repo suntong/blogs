@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Sfxpt Blog</title>
+    <link>https://suntong.github.io/blogs/post/</link>
+    <description>Recent content in Posts on Sfxpt Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Dec 2015 23:21:16 -0500</lastBuildDate>
+    <atom:link href="https://suntong.github.io/blogs/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>An exhibit of Markdown</title>
+      <link>https://suntong.github.io/blogs/2015/12/02/an-exhibit-of-markdown</link>
+      <pubDate>Wed, 02 Dec 2015 23:21:16 -0500</pubDate>
+      
+      <guid>https://suntong.github.io/blogs/2015/12/02/an-exhibit-of-markdown</guid>
+      <description>
+
+&lt;p&gt;This note demonstrates some of what wordpress Markdown is capable of doing.&lt;/p&gt;
+
+&lt;h2 id=&#34;references:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;References&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.markitdown.net/markdown&#34;&gt;http://www.markitdown.net/markdown&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.support.wordpress.com/markdown-quick-reference/&#34;&gt;http://en.support.wordpress.com/markdown-quick-reference/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&#34;&gt;https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://guides.github.com/features/mastering-markdown/&#34;&gt;https://guides.github.com/features/mastering-markdown/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;markdown-quick-reference-for-wordpress:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;Markdown quick reference for wordpress&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.support.wordpress.com/markdown-quick-reference/&#34;&gt;http://en.support.wordpress.com/markdown-quick-reference/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Special shortcodes can be embedded in &lt;a href=&#34;http://en.support.wordpress.com/post-by-email/&#34;&gt;email&lt;/a&gt; to configure the published post, e.g., &lt;code&gt;[more]&lt;/code&gt;, &lt;code&gt;[delay +1 hour]&lt;/code&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Emphasize&lt;/em&gt; &lt;em&gt;emphasize&lt;/em&gt;&lt;br /&gt;
+&lt;strong&gt;Strong&lt;/strong&gt; &lt;strong&gt;Strong&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A &lt;a href=&#34;http://example.com&#34; title=&#34;Title&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some text with &lt;a href=&#34;http://www.markitdown.net/&#34;&gt;a link&lt;/a&gt; and another &lt;a href=&#34;http://example.org/&#34; title=&#34;Title&#34;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Images Inline-style:
+&lt;img src=&#34;https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png&#34; alt=&#34;alt text&#34; title=&#34;Logo Title Text 1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Linked Images:
+&lt;a href=&#34;http://wordpress.com/&#34; title=&#34;Title&#34;&gt;&lt;img src=&#34;http://s.wordpress.org/about/images/wpmini-grey.png&#34; alt=&#34;alt text&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Footnotes: I have more&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:3014366c1e65c1cf3609cb177e3dcea8:http-www-markitdown-net&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:3014366c1e65c1cf3609cb177e3dcea8:http-www-markitdown-net&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; to say up here.&lt;/p&gt;
+
+&lt;p&gt;Lists&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Item&lt;/li&gt;
+&lt;li&gt;Item
+
+&lt;ul&gt;
+&lt;li&gt;Mixed 1&lt;/li&gt;
+&lt;li&gt;Mixed 1
+
+&lt;ul&gt;
+&lt;li&gt;Mixed 2&lt;/li&gt;
+&lt;li&gt;Mixed 2&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Or minuses
+
+&lt;ul&gt;
+&lt;li&gt;Or pluses&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Item&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Break it apart.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unordered list nicely aligned but not properly rendered
+
+&lt;ul&gt;
+&lt;li&gt;Or minuses&lt;/li&gt;
+&lt;li&gt;Or minuses&lt;/li&gt;
+&lt;li&gt;Or pluses&lt;/li&gt;
+&lt;li&gt;Or pluses&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unordered list properly rendered
+
+&lt;ul&gt;
+&lt;li&gt;Mixed 1&lt;/li&gt;
+&lt;li&gt;Mixed 1
+
+&lt;ul&gt;
+&lt;li&gt;Mixed 2&lt;/li&gt;
+&lt;li&gt;Mixed 2&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Or minuses
+
+&lt;ul&gt;
+&lt;li&gt;Or pluses&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Back to level one&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Preformatted&lt;/p&gt;
+
+&lt;p&gt;Begin each line with
+  two spaces or more to
+  make text look
+  e x a c t l y
+  like  you  type i
+  t.&lt;/p&gt;
+
+&lt;p&gt;Code block&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;#button {
+	border: none;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://en.support.wordpress.com/code/posting-source-code/&#34;&gt;http://en.support.wordpress.com/code/posting-source-code/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The following languages are supported:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;actionscript3&lt;/li&gt;
+&lt;li&gt;bash&lt;/li&gt;
+&lt;li&gt;clojure&lt;/li&gt;
+&lt;li&gt;coldfusion&lt;/li&gt;
+&lt;li&gt;cpp&lt;/li&gt;
+&lt;li&gt;csharp&lt;/li&gt;
+&lt;li&gt;css&lt;/li&gt;
+&lt;li&gt;delphi&lt;/li&gt;
+&lt;li&gt;erlang&lt;/li&gt;
+&lt;li&gt;fsharp&lt;/li&gt;
+&lt;li&gt;diff&lt;/li&gt;
+&lt;li&gt;groovy&lt;/li&gt;
+&lt;li&gt;html&lt;/li&gt;
+&lt;li&gt;javascript&lt;/li&gt;
+&lt;li&gt;java&lt;/li&gt;
+&lt;li&gt;javafx&lt;/li&gt;
+&lt;li&gt;matlab (keywords only)&lt;/li&gt;
+&lt;li&gt;objc&lt;/li&gt;
+&lt;li&gt;perl&lt;/li&gt;
+&lt;li&gt;php&lt;/li&gt;
+&lt;li&gt;text&lt;/li&gt;
+&lt;li&gt;powershell&lt;/li&gt;
+&lt;li&gt;python&lt;/li&gt;
+&lt;li&gt;r&lt;/li&gt;
+&lt;li&gt;ruby&lt;/li&gt;
+&lt;li&gt;scala&lt;/li&gt;
+&lt;li&gt;sql&lt;/li&gt;
+&lt;li&gt;vb&lt;/li&gt;
+&lt;li&gt;xml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Definition Lists&lt;/p&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;WordPress&lt;/dt&gt;
+&lt;dd&gt;A semantic personal publishing platform&lt;/dd&gt;
+&lt;dt&gt;Markdown&lt;/dt&gt;
+&lt;dd&gt;Text-to-HTML conversion tool&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Abbreviations&lt;/p&gt;
+
+&lt;p&gt;Markdown converts text to HTML.&lt;/p&gt;
+
+&lt;p&gt;*[HTML]: HyperText Markup Language
+Definitions can be anywhere in the document&lt;/p&gt;
+
+&lt;h2 id=&#34;more-markdown-examples-from-pandoc-markdown-http-johnmacfarlane-net-pandoc-readme-html-pandocs-markdown:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;More Markdown Examples from &lt;a href=&#34;http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown&#34;&gt;Pandoc-Markdown&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html&#34;&gt;http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Use 3 dashes for &amp;mdash; an em-dash. Use 2 dashes for ranges (ex., &amp;ldquo;it&amp;rsquo;s all
+in chapters 12&amp;ndash;14&amp;rdquo;). Three dots &amp;hellip; will be converted to an ellipsis.
+Unicode is supported.&lt;/p&gt;
+
+&lt;p&gt;Inline math equations go in like so: $\omega = d\phi / dt$. Display
+math should get its own line and be put in in double-dollarsigns:&lt;/p&gt;
+
+&lt;p&gt;$$I = \int \rho R^{2} dV$$&lt;/p&gt;
+
+&lt;p&gt;And note that you can backslash-escape any punctuation characters
+which you wish to be displayed literally, ex.: `foo`, *bar*, etc.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Block quotes are
+written like so.&lt;/p&gt;
+
+&lt;p&gt;They can span multiple paragraphs,
+if you like.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a &amp;ldquo;line block&amp;rdquo;:&lt;/p&gt;
+
+&lt;p&gt;| Line one
+|   Line too
+| Line tree&lt;/p&gt;
+
+&lt;p&gt;Tables can look like this:&lt;/p&gt;
+
+&lt;p&gt;size  material      color&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;9     leather       brown
+10    hemp canvas   natural
+11    glass         transparent&lt;/p&gt;
+
+&lt;p&gt;Table: Shoes, their sizes, and what they&amp;rsquo;re made of&lt;/p&gt;
+
+&lt;p&gt;(The above is the caption for the table.) Pandoc also supports
+multi-line tables:&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;keyword   text&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;red       Sunsets, apples, and
+          other red or reddish
+          things.&lt;/p&gt;
+
+&lt;p&gt;green     Leaves, grass, frogs
+          and other things it&amp;rsquo;s
+          not easy being.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;[nextpage]&lt;/p&gt;
+
+&lt;h2 id=&#34;emphasis:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;Emphasis&lt;/h2&gt;
+
+&lt;p&gt;Emphasis, aka italics, with &lt;em&gt;asterisks&lt;/em&gt; or &lt;em&gt;underscores&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Strong emphasis, aka bold, with &lt;strong&gt;asterisks&lt;/strong&gt; or &lt;strong&gt;underscores&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Combined emphasis with &lt;strong&gt;asterisks and &lt;em&gt;underscores&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Strikethrough uses two tildes. &lt;del&gt;Scratch this.&lt;/del&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;lists:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;Lists&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;First ordered list item&lt;/li&gt;
+&lt;li&gt;Another item
+
+&lt;ul&gt;
+&lt;li&gt;Unordered sub-list.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Actual numbers don&amp;rsquo;t matter, just that it&amp;rsquo;s a number
+
+&lt;ol&gt;
+&lt;li&gt;Ordered sub-list&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;And another item.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we&amp;rsquo;ll use three here to also align the raw Markdown).&lt;/p&gt;
+
+&lt;p&gt;To have a line break without a paragraph, you will need to use two trailing spaces.&lt;br /&gt;
+   Note that this line is separate, but within the same paragraph.&lt;br /&gt;
+   (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Unordered list can use asterisks&lt;/li&gt;
+&lt;li&gt;Or minuses&lt;/li&gt;
+&lt;li&gt;Or pluses&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;urls:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;URLs&lt;/h2&gt;
+
+&lt;p&gt;URLs can be made in a handful of ways:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com&#34;&gt;http://github.com&lt;/a&gt; - automatic!&lt;/li&gt;
+&lt;li&gt;A named link to &lt;a href=&#34;http://www.markitdown.net/&#34;&gt;MarkItDown&lt;/a&gt;. The easiest way to do these is to select what you want to make a link and hit &lt;code&gt;Ctrl+L&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Another named link to &lt;a href=&#34;http://www.markitdown.net/&#34;&gt;MarkItDown&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some text to show that the reference links can follow later.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;internal&#34;/&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;internal-links-named-anchors:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;internal links / named anchors&lt;/h3&gt;
+
+&lt;p&gt;For Markdown&amp;rsquo;s support for internal links / named anchors,&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://stackoverflow.com/questions/2822089/how-to-link-to-part-of-the-same-document-in-markdown/6494918#6494918&#34;&gt;http://stackoverflow.com/questions/2822089/how-to-link-to-part-of-the-same-document-in-markdown/6494918#6494918&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;obvious solution is to place your own anchor point in the page wherever you like, thus:&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;abcde&#34;/&gt;
+before the line you want to &amp;lsquo;link&amp;rsquo; to. Don&amp;rsquo;t forget the quotation marks around it. Then a markdown link like:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;#abcde&#34;&gt;link text&lt;/a&gt;
+anywhere in the document takes you there.&lt;/p&gt;
+
+&lt;p&gt;It might be OK to put the &lt;a href=&#34;#internal&#34;&gt;anchor in the heading line&lt;/a&gt; you wish to link.&lt;/p&gt;
+
+&lt;h2 id=&#34;images:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;Images&lt;/h2&gt;
+
+&lt;p&gt;Here&amp;rsquo;s our logo (hover to see the title text):&lt;/p&gt;
+
+&lt;p&gt;Inline-style:
+&lt;img src=&#34;https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png&#34; alt=&#34;alt text&#34; title=&#34;Logo Title Text 1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Linked Images:
+&lt;a href=&#34;http://wordpress.com/&#34; title=&#34;Title&#34;&gt;&lt;img src=&#34;http://s.wordpress.org/about/images/wpmini-grey.png&#34; alt=&#34;alt text&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Reference-style:
+&lt;img src=&#34;https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png&#34; alt=&#34;alt text&#34; title=&#34;Logo Title Text 2&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;code-and-syntax-highlighting:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;Code and Syntax Highlighting&lt;/h2&gt;
+
+&lt;p&gt;Code blocks are part of the Markdown spec, but syntax highlighting isn&amp;rsquo;t. However, many renderers &amp;ndash; like Github&amp;rsquo;s and Markdown Here &amp;ndash; support syntax highlighting.&lt;/p&gt;
+
+&lt;p&gt;Inline &lt;code&gt;code&lt;/code&gt; has &lt;code&gt;back-ticks around&lt;/code&gt; it.&lt;/p&gt;
+
+&lt;h3 id=&#34;code-blocks:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;code blocks&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Code blocks are very useful for developers and other people who look at code or other things that are written in plain text. As you can see, it uses a fixed-width font.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Blocks of code are either fenced by lines with three back-ticks ```, or are indented with four spaces. I recommend only using the fenced code blocks &amp;ndash; they&amp;rsquo;re easier and only they support syntax highlighting.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var s = &amp;quot;JavaScript syntax highlighting&amp;quot;;
+alert(s);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;s = &amp;quot;Python syntax highlighting&amp;quot;
+print s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;No language indicated, so no syntax highlighting. 
+But let&#39;s throw in a &amp;lt;b&amp;gt;tag&amp;lt;/b&amp;gt;.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;blockquotes:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;Blockquotes&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Blockquotes are very handy in email to emulate reply text.
+This line is part of the same quote.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Quote break.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This is a very long line that will still be quoted properly when it wraps. Oh boy let&amp;rsquo;s keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can &lt;em&gt;put&lt;/em&gt; &lt;strong&gt;Markdown&lt;/strong&gt; into a blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;inline-html:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;Inline HTML&lt;/h2&gt;
+
+&lt;p&gt;You can also use raw HTML in your Markdown, and it&amp;rsquo;ll mostly work pretty well.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definition list&lt;/dt&gt;
+  &lt;dd&gt;Is something people use sometimes.&lt;/dd&gt;
+
+  &lt;dt&gt;Markdown in HTML&lt;/dt&gt;
+  &lt;dd&gt;Does *not* work **very** well. Use HTML &lt;em&gt;tags&lt;/em&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h1 id=&#34;headings-h1-can-also-contain-formatting:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;Headings - H1,  &lt;em&gt;can&lt;/em&gt; also contain &lt;strong&gt;formatting&lt;/strong&gt;&lt;/h1&gt;
+
+&lt;p&gt;There are six levels of headings. They correspond with the six levels of HTML headings.&lt;/p&gt;
+
+&lt;h2 id=&#34;h2:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;H2&lt;/h2&gt;
+
+&lt;h3 id=&#34;h3:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;H3&lt;/h3&gt;
+
+&lt;h4 id=&#34;h4:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;H4&lt;/h4&gt;
+
+&lt;h5 id=&#34;h5:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;H5&lt;/h5&gt;
+
+&lt;h6 id=&#34;h6:3014366c1e65c1cf3609cb177e3dcea8&#34;&gt;H6&lt;/h6&gt;
+
+&lt;p&gt;[end]&lt;/p&gt;
+
+&lt;p&gt;everything after this shortcode is ignored (i.e. signatures). Make sure it&amp;rsquo;s on its own line with a blank line above it.&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:3014366c1e65c1cf3609cb177e3dcea8:http-www-markitdown-net&#34;&gt; &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:3014366c1e65c1cf3609cb177e3dcea8:http-www-markitdown-net&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
