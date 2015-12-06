@@ -43,7 +43,7 @@ Here is an example of meta data in TOML format:
     tags = ["Debian","Ubuntu","Linux","DHCP","DNS","WPAD","dnsmasq","dbab"]
     +++
 
-Github apparently doesn't understand the TOML format, so it just shows them as a [long line of ugly strings](https://github.com/suntong/blogs/commit/a2b128fafed6b0b3062de9ee4405705c26425bd5); yet it understands the YAML format, and [present it nicely as a table ](https://github.com/suntong/blogs/blob/master/content/post/Wp2Hugo.md).
+Github apparently doesn't understand the TOML format, so it just shows them as a [long line of ugly strings](https://github.com/suntong/blogs/blob/a2b128fafed6b0b3062de9ee4405705c26425bd5/content/post/Wp2Hugo.md); yet it understands the YAML format, and [present it nicely as a table ](https://github.com/suntong/blogs/blob/master/content/post/Wp2Hugo.md).
 
 ## Source
 
