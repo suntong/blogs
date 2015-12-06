@@ -6,8 +6,44 @@
     <description>Recent content on Sfxpt Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Dec 2015 23:21:16 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 05 Dec 2015 23:58:01 -0500</lastBuildDate>
     <atom:link href="https://suntong.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Wp2Hugo</title>
+      <link>https://suntong.github.io/blogs/2015/12/05/wp2hugo</link>
+      <pubDate>Sat, 05 Dec 2015 23:58:01 -0500</pubDate>
+      
+      <guid>https://suntong.github.io/blogs/2015/12/05/wp2hugo</guid>
+      <description>&lt;p&gt;Wp2Hugo converts wordpress&amp;rsquo;s markdown meta data format into Hugo&amp;rsquo;s.&lt;/p&gt;
+
+&lt;p&gt;E.g., for an input of wordpress&amp;rsquo;s markdown like this,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Dbab From Start To Finish
+
+[category Tech][tags Debian,Ubuntu,Linux,DHCP,DNS,WPAD,dnsmasq,dbab]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output Hugo&amp;rsquo;s meta data is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;+++
+title = &amp;quot;Dbab From Start To Finish&amp;quot;
+date = &amp;quot;2015-12-05T23:29:19-05:00&amp;quot;
+categories = [&amp;quot;Tech&amp;quot;]
+tags = [&amp;quot;Debian&amp;quot;,&amp;quot;Ubuntu&amp;quot;,&amp;quot;Linux&amp;quot;,&amp;quot;DHCP&amp;quot;,&amp;quot;DNS&amp;quot;,&amp;quot;WPAD&amp;quot;,&amp;quot;dnsmasq&amp;quot;,&amp;quot;dbab&amp;quot;]
++++
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usage:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Wp2Hugo &amp;lt; wordpress.md &amp;gt; path/to/hugo.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Source:&lt;/p&gt;
+
+&lt;script src=&#34;//gist.github.com/suntong/0268a39d18bf3e684ff9.js&#34;&gt;&lt;/script&gt;
+</description>
+    </item>
     
     <item>
       <title>An exhibit of Markdown</title>
