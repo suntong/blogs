@@ -57,7 +57,7 @@ tags = [&amp;quot;Debian&amp;quot;,&amp;quot;Ubuntu&amp;quot;,&amp;quot;Linux&am
 +++
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Github apparently doesn&amp;rsquo;t understand the TOML format, so it just shows them as a &lt;a href=&#34;https://github.com/suntong/blogs/commit/a2b128fafed6b0b3062de9ee4405705c26425bd5&#34;&gt;long line of ugly strings&lt;/a&gt;; yet it understands the YAML format, and &lt;a href=&#34;https://github.com/suntong/blogs/blob/master/content/post/Wp2Hugo.md&#34;&gt;present it nicely as a table &lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Github apparently doesn&amp;rsquo;t understand the TOML format, so it just shows them as a &lt;a href=&#34;https://github.com/suntong/blogs/blob/a2b128fafed6b0b3062de9ee4405705c26425bd5/content/post/Wp2Hugo.md&#34;&gt;long line of ugly strings&lt;/a&gt;; yet it understands the YAML format, and &lt;a href=&#34;https://github.com/suntong/blogs/blob/master/content/post/Wp2Hugo.md&#34;&gt;present it nicely as a table &lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;source:8a55f438c7f68ff2aceb1734b9746f11&#34;&gt;Source&lt;/h2&gt;
 
