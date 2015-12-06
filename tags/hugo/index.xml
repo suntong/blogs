@@ -6,16 +6,20 @@
     <description>Recent content in Hugo on Sfxpt Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 05 Dec 2015 23:58:01 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 06 Dec 2015 09:26:47 -0500</lastBuildDate>
     <atom:link href="https://suntong.github.io/blogs/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Wp2Hugo</title>
-      <link>https://suntong.github.io/blogs/2015/12/05/wp2hugo</link>
-      <pubDate>Sat, 05 Dec 2015 23:58:01 -0500</pubDate>
+      <link>https://suntong.github.io/blogs/2015/12/06/wp2hugo</link>
+      <pubDate>Sun, 06 Dec 2015 09:26:47 -0500</pubDate>
       
-      <guid>https://suntong.github.io/blogs/2015/12/05/wp2hugo</guid>
-      <description>&lt;p&gt;Wp2Hugo converts wordpress&amp;rsquo;s markdown meta data format into Hugo&amp;rsquo;s.&lt;/p&gt;
+      <guid>https://suntong.github.io/blogs/2015/12/06/wp2hugo</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction:8a55f438c7f68ff2aceb1734b9746f11&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Wp2Hugo converts wordpress&amp;rsquo;s markdown meta data format into Hugo&amp;rsquo;s.&lt;/p&gt;
 
 &lt;p&gt;E.g., for an input of wordpress&amp;rsquo;s markdown like this,&lt;/p&gt;
 
@@ -26,6 +30,25 @@
 
 &lt;p&gt;The output Hugo&amp;rsquo;s meta data is:&lt;/p&gt;
 
+&lt;pre&gt;&lt;code&gt;---
+title: &amp;quot;Dbab From Start To Finish&amp;quot;
+date: &amp;quot;2015-12-06T09:57:45-05:00&amp;quot;
+categories: [&amp;quot;Tech&amp;quot;]
+tags: [&amp;quot;Debian&amp;quot;,&amp;quot;Ubuntu&amp;quot;,&amp;quot;Linux&amp;quot;,&amp;quot;DHCP&amp;quot;,&amp;quot;DNS&amp;quot;,&amp;quot;WPAD&amp;quot;,&amp;quot;dnsmasq&amp;quot;,&amp;quot;dbab&amp;quot;]
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;usage:8a55f438c7f68ff2aceb1734b9746f11&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;Wp2Hugo &amp;lt; wordpress.md &amp;gt; path/to/hugo.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;discussion:8a55f438c7f68ff2aceb1734b9746f11&#34;&gt;Discussion&lt;/h2&gt;
+
+&lt;p&gt;The metadata section in Hugo is called &lt;a href=&#34;https://gohugo.io/content/front-matter/&#34;&gt;frontmatter&lt;/a&gt;.  it &lt;em&gt;&amp;ldquo;supports a few different formats&amp;rdquo;&lt;/em&gt;, and &lt;em&gt;&amp;ldquo;each with their own identifying tokens&amp;rdquo;&lt;/em&gt;. What Icarus template uses is the TOML format, identified by &lt;code&gt;&#39;+++&#39;&lt;/code&gt;, and &lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/&#34;&gt;what hugo tutorials&lt;/a&gt; uses is YAML format, identified by &lt;code&gt;&#39;---&#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is an example of meta data in TOML format:&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;+++
 title = &amp;quot;Dbab From Start To Finish&amp;quot;
 date = &amp;quot;2015-12-05T23:29:19-05:00&amp;quot;
@@ -34,12 +57,13 @@ tags = [&amp;quot;Debian&amp;quot;,&amp;quot;Ubuntu&amp;quot;,&amp;quot;Linux&am
 +++
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Usage:&lt;/p&gt;
+&lt;p&gt;Github apparently doesn&amp;rsquo;t understand the TOML format, so it just shows them as a &lt;a href=&#34;https://github.com/suntong/blogs/commit/a2b128fafed6b0b3062de9ee4405705c26425bd5&#34;&gt;long line of ugly strings&lt;/a&gt;; yet it understands the YAML format, and &lt;a href=&#34;https://github.com/suntong/blogs/blob/master/content/post/Wp2Hugo.md&#34;&gt;present it nicely as a table &lt;/a&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;Wp2Hugo &amp;lt; wordpress.md &amp;gt; path/to/hugo.md
-&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;source:8a55f438c7f68ff2aceb1734b9746f11&#34;&gt;Source&lt;/h2&gt;
 
-&lt;p&gt;Source:&lt;/p&gt;
+&lt;p&gt;Update: I&amp;rsquo;ve switched over from the original TOML format to YAML format after the initial post, so that my .md &lt;em&gt;source&lt;/em&gt; will look good on Github as well. The following code is just to demonstrate the &lt;code&gt;gist&lt;/code&gt; &lt;a href=&#34;http://gohugo.io/extras/shortcodes/&#34;&gt;shortcodes&lt;/a&gt; so it is still converting to the TOML format. You can find the &lt;a href=&#34;https://github.com/suntong/lang/blob/master/lang/Go/src/text/awk/Wp2Hugo.go&#34;&gt;latest Wp2Hugo code here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;BTW, hope Hugo can add such &lt;code&gt;github&lt;/code&gt; code into their &lt;a href=&#34;http://gohugo.io/extras/shortcodes/&#34;&gt;shortcodes&lt;/a&gt; support as well, since it will literally the same as the &lt;code&gt;gist&lt;/code&gt; shortcode.&lt;/p&gt;
 
 &lt;script src=&#34;//gist.github.com/suntong/0268a39d18bf3e684ff9.js&#34;&gt;&lt;/script&gt;
 </description>
