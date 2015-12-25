@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>Markdown &middot; Sfxpt Blog</title>
+    <title>Use sfdisk to partition disks &middot; Sfxpt Blog</title>
     <meta name="generator" content="Hugo 0.15" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Xpt">
     <meta name="description" content="Sfxpt&#39;s blogs">
-    
-      <link href="https://suntong.github.io/blogs/tags/markdown/index.xml" rel="alternate" type="application/rss+xml" title="Sfxpt Blog" />
-      <link href="https://suntong.github.io/blogs/tags/markdown/index.xml" rel="feed" type="application/rss+xml" title="Sfxpt Blog" />
     
     <link rel="icon" href="https://suntong.github.io/blogs/favicon.ico">
     <link rel="apple-touch-icon" href="https://suntong.github.io/blogs/apple-touch-icon.png" />
@@ -19,33 +16,61 @@
     <link rel="stylesheet" href="https://suntong.github.io/blogs/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Markdown" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://suntong.github.io/blogs/tags/markdown/" />
+    <meta property="og:title" content="Use sfdisk to partition disks" />
+<meta property="og:description" content="
+
+I&rsquo;ve long been enjoying using sfdisk to manipulate my disk partitions, especially for creating disk partitions.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks" />
 
 
-<meta property="og:updated_time" content="2015-12-06T09:26:47-05:00"/>
-
-
-
-
-
-
+<meta property="og:updated_time" content="2015-12-25T16:32:39-05:00"/>
 
 
 
-    
-    
-<meta itemprop="name" content="Markdown">
-<meta itemprop="description" content="">
+
+
+
+
+
 
 
     
+    
+<meta itemprop="name" content="Use sfdisk to partition disks">
+<meta itemprop="description" content="
+
+I&rsquo;ve long been enjoying using sfdisk to manipulate my disk partitions, especially for creating disk partitions.
+">
+
+
+<meta itemprop="dateModified" content="2015-12-25T16:32:39-05:00" />
+<meta itemprop="wordCount" content="860">
+
+
+
+<meta itemprop="keywords" content="tech,cli,debian,hugo,linux,markdown,partition,ubuntu," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Use sfdisk to partition disks"/>
+<meta name="twitter:description" content="
+
+I&rsquo;ve long been enjoying using sfdisk to manipulate my disk partitions, especially for creating disk partitions.
+"/>
+
+
+
 </head>
 <body>
 <div class="container">
- <header id="header">
+
+<header id="header">
   <div id="header-main" class="header-inner">
     <div class="outer">
       <a href="https://suntong.github.io/blogs/" id="logo"><i class="logo" style="background-image: url('https://suntong.github.io/blogs/css/images/logo.png')"></i><span class="site-title">Sfxpt Blog</span></a>
@@ -130,8 +155,8 @@
 
 
 <div id="container">
-    <div class="outer">
-        <aside id="profile">
+   <div class="outer">
+    <aside id="profile">
   <div class="inner profile-inner">
     <div class="base-info profile-block">
       <img id="avatar" src="https://suntong.github.io/blogs/css/images/avatar.png">
@@ -211,71 +236,318 @@
 
 
 
-          <td><a href="https://suntong.github.io/blogs/tags/markdown/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+          <td><a href="" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
         </tr>
       </table>
     </div>
   </div>
 </aside>
 
-        <section id="main">
-            <section class="archives-wrap">
-                <div class="archive-category-wrap">
-                    <span class="archive-category">Markdown</span>
-                </div>
-                <div class="archives">
-                    
-                    
-                        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
+    <section id="main">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
             
-            <a href="https://suntong.github.io/blogs/2015/12/06/wp2hugo" class="thumbnail">
-                <span class="thumbnail-image thumbnail-none"></span>
-            </a>
-            
-        </div>
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://suntong.github.io/blogs/2015/12/06/wp2hugo">Wp2Hugo</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2015-12-06 09:26:47 -0500 EST" itemprop="datePublished">2015-12-06</time>
-            </div>
-        </header>
-    </div>
-</article> 
-                    
-                        <article class="archive-article archive-type-post">
-    <div class="archive-article-inner">
-        <div class="archive-article-thumbnail">
-            
-            <a href="https://suntong.github.io/blogs/2015/12/02/an-exhibit-of-markdown" class="thumbnail">
-                <span class="thumbnail-image thumbnail-none"></span>
-            </a>
-            
-        </div>
-        <header class="archive-article-header">
-            <h1 itemprop="name">
-            <a class="archive-article-title" href="https://suntong.github.io/blogs/2015/12/02/an-exhibit-of-markdown">An exhibit of Markdown</a>
-            </h1>
-            <div class="archive-article-date">
-                <i class="fa fa-calendar"></i>
-                <time datetime="2015-12-02 23:21:16 -0500 EST" itemprop="datePublished">2015-12-02</time>
-            </div>
-        </header>
-    </div>
-</article> 
-                    
-                </div>
-            </section>
-            <nav id="page-nav">
 
+            <header class="article-header">
+    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks">
+    <h1 class="article-title" itemprop="name">
+        Use sfdisk to partition disks
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2015-12-25 16:32:39 -0500 EST" itemprop="datePublished">2015-12-25</time>
+            &middot;
+            860
+            words
+            &middot;
+            5
+            minute read
+        </div>
+        
+        
+        <div class="article-category">
+            <i class="fa fa-folder"></i>
+            
+            <a class="article-category-link" href="https://suntong.github.io/blogs/categories/tech">Tech</a>
+            
+            
+        </div>
+        
+
+        
+        
+        <div class="article-category">
+            <i class="fa fa-tags"></i>
+            
+            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/debian">Debian</a>
+            &middot;
+            
+            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/ubuntu">Ubuntu</a>
+            &middot;
+            
+            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/linux">Linux</a>
+            &middot;
+            
+            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/partition">partition</a>
+            &middot;
+            
+            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/cli">CLI</a>
+            
+            
+        </div>
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                
+
+<!--
+[category Tech][tags Debian,Ubuntu,Linux,partition,CLI]
+-->
+
+<p>I&rsquo;ve long been enjoying using <code>sfdisk</code> to manipulate my disk partitions, especially for creating disk partitions.</p>
+
+<p>Creating disk partitions with <code>sfdisk</code> is super easy. The followings are the notes I jotted down back in the old days when HD were still called <code>hda</code> instead of <code>sda</code>. Replace <code>hdX</code> with <code>sdX</code>, and everything are still as good as new, as far as MBR type of disks are concerned.</p>
+
+<p>Input lines have fields <code>&lt;start&gt;,&lt;size&gt;,&lt;type&gt;</code>&hellip; - see sfdisk.8.
+<code>sfdisk</code> reads lines of the form</p>
+
+<pre><code>          &lt;start&gt; &lt;size&gt; &lt;id&gt; &lt;bootable&gt; &lt;c,h,s&gt; &lt;c,h,s&gt;
+</code></pre>
+
+<p>Usually no <code>&lt;start&gt;</code> is given, and input lines start with a comma.</p>
+
+<h2 id="example-1:d2003266fecc98ef045cd536251823f1">Example 1</h2>
+
+<p>1) One big partition:</p>
+
+<pre><code>sfdisk /dev/hda &lt;&lt; EOF
+;
+EOF
+</code></pre>
+
+<p>or,</p>
+
+<pre><code>echo ';' | sfdisk /dev/sdc
+</code></pre>
+
+<p>(If there was garbage on the disk before, you may get error messages
+like: <code>ERROR: sector 0 does not have an msdos signature</code>
+and <code>/dev/hda: unrecognized partition</code>. This does not matter
+if you write an entirely fresh partition table anyway.)</p>
+
+<p>The output will be:</p>
+
+<pre><code>Old situation:
+...
+New situation:
+Units = cylinders of 208896 bytes, blocks of 1024 bytes, counting from 0
+
+   Device Boot Start     End   #cyls   #blocks   Id  System
+/dev/hda1          0+   1023    1024-   208895+  83  Linux native
+Successfully wrote the new partition table
+  hda: hda1
+</code></pre>
+
+<p>Writing and rereading the partition table takes a few seconds -
+don&rsquo;t be alarmed if nothing happens for six seconds or so.</p>
+
+<p>To create a single &ldquo;W95 FAT32 (LBA)&rdquo; partition, try:</p>
+
+<pre><code>echo ',,c;' | sfdisk /dev/sdd
+</code></pre>
+
+<h2 id="example-2:d2003266fecc98ef045cd536251823f1">Example 2</h2>
+
+<p>2) Three primary partitions: two of size 50MB and the rest:</p>
+
+<pre><code>sfdisk /dev/hda -uM &lt;&lt; EOF
+,50
+,50
+;
+EOF
+</code></pre>
+
+<p>The result:</p>
+
+<pre><code>New situation:
+Units = megabytes of 1048576 bytes, blocks of 1024 bytes, counting from 0
+
+   Device Boot Start   End     MB   #blocks   Id  System
+/dev/hda1         0+    50-    51-    51203+  83  Linux native
+/dev/hda2        50+   100-    51-    51204   83  Linux native
+/dev/hda3       100+   203    104-   106488   83  Linux native
+Successfully wrote the new partition table
+  hda: hda1 hda2 hda3
+</code></pre>
+
+<p><code>/dev/hda1</code> is one block (in fact only half a block) shorter than
+<code>/dev/hda2</code> because its start had to be shifted away from zero in
+order to leave room for the Master Boot Record (MBR).</p>
+
+<h2 id="example-3:d2003266fecc98ef045cd536251823f1">Example 3</h2>
+
+<p>3) A 1MB OS2 Boot Manager partition, a 50MB DOS partition,
+   and three extended partitions (DOS D:, Linux swap, Linux):</p>
+
+<pre><code>sfdisk /dev/hda -uM &lt;&lt; EOF
+,1,a
+,50,6
+,,E
+;
+,20,4
+,16,S
+;
+EOF
+</code></pre>
+
+<p>The result:</p>
+
+<pre><code>   Device Boot Start   End     MB   #blocks   Id  System
+/dev/hda1         0+     1-     2-     1223+   a  OS/2 Boot Manager
+/dev/hda2         1+    51-    51-    51204    6  DOS 16-bit FAT &gt;=32M
+/dev/hda3        51+   203    153-   156468    5  Extended
+/dev/hda4         0      -      0         0    0  Empty
+/dev/hda5        51+    71-    21-    20603+   4  DOS 16-bit FAT &lt;32M
+/dev/hda6        71+    87-    17-    16523+  82  Linux swap
+/dev/hda7        87+   203    117-   119339+  83  Linux native
+Successfully wrote the new partition table
+  hda: hda1 hda2 hda3 &lt; hda5 hda6 hda7 &gt;
+</code></pre>
+
+<p>All these rounded numbers look better in cylinder units:</p>
+
+<pre><code>% sfdisk -l /dev/hda
+   Device Boot Start     End   #cyls   #blocks   Id  System
+/dev/hda1          0+      5       6-     1223+   a  OS/2 Boot Manager
+/dev/hda2          6     256     251     51204    6  DOS 16-bit FAT &gt;=32M
+/dev/hda3        257    1023     767    156468    5  Extended
+/dev/hda4          0       -       0         0    0  Empty
+/dev/hda5        257+    357     101-    20603+   4  DOS 16-bit FAT &lt;32M
+/dev/hda6        358+    438      81-    16523+  82  Linux swap
+/dev/hda7        439+   1023     585-   119339+  83  Linux native
+</code></pre>
+
+<h2 id="explanations:d2003266fecc98ef045cd536251823f1">Explanations</h2>
+
+<p>But still - why does /dev/hda5 not start on a cylinder boundary?
+Because it is contained in an extended partition that does.
+Of the chain of extended partitions, usually only the first is
+shown. (The others have no name under Linux anyway.) But
+these additional extended partitions can be made visible:</p>
+
+<pre><code>% sfdisk -l -x /dev/hda
+</code></pre>
+
+<pre><code>   Device Boot Start     End   #cyls   #blocks   Id  System
+/dev/hda1          0+      5       6-     1223+   a  OS/2 Boot Manager
+/dev/hda2          6     256     251     51204    6  DOS 16-bit FAT &gt;=32M
+/dev/hda3        257    1023     767    156468    5  Extended
+/dev/hda4          0       -       0         0    0  Empty
+
+/dev/hda5        257+    357     101-    20603+   4  DOS 16-bit FAT &lt;32M
+    -            358    1023     666    135864    5  Extended
+    -            257     256       0         0    0  Empty
+    -            257     256       0         0    0  Empty
+
+/dev/hda6        358+    438      81-    16523+  82  Linux swap
+    -            439    1023     585    119340    5  Extended
+    -            358     357       0         0    0  Empty
+    -            358     357       0         0    0  Empty
+
+/dev/hda7        439+   1023     585-   119339+  83  Linux native
+    -            439     438       0         0    0  Empty
+    -            439     438       0         0    0  Empty
+    -            439     438       0         0    0  Empty
+</code></pre>
+
+<p>Why the empty 4th input line? The description of the extended partitions
+starts after that of the four primary partitions.
+You force an empty partition with a &ldquo;,0&rdquo; input line, but here all
+space was divided already, so the fourth partition became empty
+automatically.</p>
+
+<p>How did I know about 4,6,a,E,S? Well, <strong>E,S,L</strong> stand for <em>Extended</em>,
+<em>Swap</em> and <em>Linux</em>. The other values are hexadecimal and come from
+the table:</p>
+
+<pre><code>% sfdisk -T
+Id  Name
+
+ 0  Empty
+ 1  DOS 12-bit FAT
+ 2  XENIX root
+ 3  XENIX usr
+ 4  DOS 16-bit FAT &lt;32M
+ 5  Extended
+ 6  DOS 16-bit FAT &gt;=32M
+ 7  OS/2 HPFS or QNX or Advanced UNIX
+ 8  AIX data
+ 9  AIX boot or Coherent
+ a  OS/2 Boot Manager
+...
+</code></pre>
+
+<p>Ref:</p>
+
+<p>/usr/share/doc/util-linux/examples/sfdisk.examples.gz</p>
+
+            </div>
+            <footer class="article-footer">
+    <a data-url="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks" data-id="d2003266fecc98ef045cd536251823f1" class="article-share-link">
+        Share
+    </a>
+    
+    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+</footer>
+
+        </div>
+
+        
+<nav id="article-nav">
+    
+    <a href="https://suntong.github.io/blogs/2015/12/06/wp2hugo" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">Wp2Hugo</div>
+    </a>
+    
+
+    
 </nav>
 
-        </section>
-        <aside id="sidebar">
+
+    </article>
+    <section id="comments">
+        <div id="disqus_thread">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'Xpt';
+    var disqus_identifier = 'https:\/\/suntong.github.io\/blogs\/2015\/12\/25\/use-sfdisk-to-partition-disks';
+    var disqus_title = 'Use sfdisk to partition disks';
+    var disqus_url = 'https:\/\/suntong.github.io\/blogs\/2015\/12\/25\/use-sfdisk-to-partition-disks';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </section>
+
+</section>
+
+    <aside id="sidebar">
     
 <div class="widget-wrap">
     <h3 class="widget-title">
@@ -286,7 +558,7 @@
             
             <li>
                 <div class="item-thumbnail">
-                    <a href="https://suntong.github.io/blogs/tags/markdown/" class="thumbnail">
+                    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
                     
@@ -309,7 +581,7 @@
             
             <li>
                 <div class="item-thumbnail">
-                    <a href="https://suntong.github.io/blogs/tags/markdown/" class="thumbnail">
+                    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
                     
@@ -332,7 +604,7 @@
             
             <li>
                 <div class="item-thumbnail">
-                    <a href="https://suntong.github.io/blogs/tags/markdown/" class="thumbnail">
+                    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
                     
@@ -473,7 +745,7 @@
     <div id="toTop" class="fa fa-chevron-up"></div>
 </aside>
 
-    </div>
+</div>
 </div>
 
 <footer id="footer">

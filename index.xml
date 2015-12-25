@@ -6,8 +6,209 @@
     <description>Recent content on Sfxpt Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Dec 2015 09:26:47 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 25 Dec 2015 16:32:39 -0500</lastBuildDate>
     <atom:link href="https://suntong.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Use sfdisk to partition disks</title>
+      <link>https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks</link>
+      <pubDate>Fri, 25 Dec 2015 16:32:39 -0500</pubDate>
+      
+      <guid>https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks</guid>
+      <description>
+
+&lt;!--
+[category Tech][tags Debian,Ubuntu,Linux,partition,CLI]
+--&gt;
+
+&lt;p&gt;I&amp;rsquo;ve long been enjoying using &lt;code&gt;sfdisk&lt;/code&gt; to manipulate my disk partitions, especially for creating disk partitions.&lt;/p&gt;
+
+&lt;p&gt;Creating disk partitions with &lt;code&gt;sfdisk&lt;/code&gt; is super easy. The followings are the notes I jotted down back in the old days when HD were still called &lt;code&gt;hda&lt;/code&gt; instead of &lt;code&gt;sda&lt;/code&gt;. Replace &lt;code&gt;hdX&lt;/code&gt; with &lt;code&gt;sdX&lt;/code&gt;, and everything are still as good as new, as far as MBR type of disks are concerned.&lt;/p&gt;
+
+&lt;p&gt;Input lines have fields &lt;code&gt;&amp;lt;start&amp;gt;,&amp;lt;size&amp;gt;,&amp;lt;type&amp;gt;&lt;/code&gt;&amp;hellip; - see sfdisk.8.
+&lt;code&gt;sfdisk&lt;/code&gt; reads lines of the form&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;          &amp;lt;start&amp;gt; &amp;lt;size&amp;gt; &amp;lt;id&amp;gt; &amp;lt;bootable&amp;gt; &amp;lt;c,h,s&amp;gt; &amp;lt;c,h,s&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usually no &lt;code&gt;&amp;lt;start&amp;gt;&lt;/code&gt; is given, and input lines start with a comma.&lt;/p&gt;
+
+&lt;h2 id=&#34;example-1:d2003266fecc98ef045cd536251823f1&#34;&gt;Example 1&lt;/h2&gt;
+
+&lt;p&gt;1) One big partition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sfdisk /dev/hda &amp;lt;&amp;lt; EOF
+;
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &#39;;&#39; | sfdisk /dev/sdc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(If there was garbage on the disk before, you may get error messages
+like: &lt;code&gt;ERROR: sector 0 does not have an msdos signature&lt;/code&gt;
+and &lt;code&gt;/dev/hda: unrecognized partition&lt;/code&gt;. This does not matter
+if you write an entirely fresh partition table anyway.)&lt;/p&gt;
+
+&lt;p&gt;The output will be:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Old situation:
+...
+New situation:
+Units = cylinders of 208896 bytes, blocks of 1024 bytes, counting from 0
+
+   Device Boot Start     End   #cyls   #blocks   Id  System
+/dev/hda1          0+   1023    1024-   208895+  83  Linux native
+Successfully wrote the new partition table
+  hda: hda1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Writing and rereading the partition table takes a few seconds -
+don&amp;rsquo;t be alarmed if nothing happens for six seconds or so.&lt;/p&gt;
+
+&lt;p&gt;To create a single &amp;ldquo;W95 FAT32 (LBA)&amp;rdquo; partition, try:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &#39;,,c;&#39; | sfdisk /dev/sdd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;example-2:d2003266fecc98ef045cd536251823f1&#34;&gt;Example 2&lt;/h2&gt;
+
+&lt;p&gt;2) Three primary partitions: two of size 50MB and the rest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sfdisk /dev/hda -uM &amp;lt;&amp;lt; EOF
+,50
+,50
+;
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;New situation:
+Units = megabytes of 1048576 bytes, blocks of 1024 bytes, counting from 0
+
+   Device Boot Start   End     MB   #blocks   Id  System
+/dev/hda1         0+    50-    51-    51203+  83  Linux native
+/dev/hda2        50+   100-    51-    51204   83  Linux native
+/dev/hda3       100+   203    104-   106488   83  Linux native
+Successfully wrote the new partition table
+  hda: hda1 hda2 hda3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;/dev/hda1&lt;/code&gt; is one block (in fact only half a block) shorter than
+&lt;code&gt;/dev/hda2&lt;/code&gt; because its start had to be shifted away from zero in
+order to leave room for the Master Boot Record (MBR).&lt;/p&gt;
+
+&lt;h2 id=&#34;example-3:d2003266fecc98ef045cd536251823f1&#34;&gt;Example 3&lt;/h2&gt;
+
+&lt;p&gt;3) A 1MB OS2 Boot Manager partition, a 50MB DOS partition,
+   and three extended partitions (DOS D:, Linux swap, Linux):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sfdisk /dev/hda -uM &amp;lt;&amp;lt; EOF
+,1,a
+,50,6
+,,E
+;
+,20,4
+,16,S
+;
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   Device Boot Start   End     MB   #blocks   Id  System
+/dev/hda1         0+     1-     2-     1223+   a  OS/2 Boot Manager
+/dev/hda2         1+    51-    51-    51204    6  DOS 16-bit FAT &amp;gt;=32M
+/dev/hda3        51+   203    153-   156468    5  Extended
+/dev/hda4         0      -      0         0    0  Empty
+/dev/hda5        51+    71-    21-    20603+   4  DOS 16-bit FAT &amp;lt;32M
+/dev/hda6        71+    87-    17-    16523+  82  Linux swap
+/dev/hda7        87+   203    117-   119339+  83  Linux native
+Successfully wrote the new partition table
+  hda: hda1 hda2 hda3 &amp;lt; hda5 hda6 hda7 &amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All these rounded numbers look better in cylinder units:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% sfdisk -l /dev/hda
+   Device Boot Start     End   #cyls   #blocks   Id  System
+/dev/hda1          0+      5       6-     1223+   a  OS/2 Boot Manager
+/dev/hda2          6     256     251     51204    6  DOS 16-bit FAT &amp;gt;=32M
+/dev/hda3        257    1023     767    156468    5  Extended
+/dev/hda4          0       -       0         0    0  Empty
+/dev/hda5        257+    357     101-    20603+   4  DOS 16-bit FAT &amp;lt;32M
+/dev/hda6        358+    438      81-    16523+  82  Linux swap
+/dev/hda7        439+   1023     585-   119339+  83  Linux native
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;explanations:d2003266fecc98ef045cd536251823f1&#34;&gt;Explanations&lt;/h2&gt;
+
+&lt;p&gt;But still - why does /dev/hda5 not start on a cylinder boundary?
+Because it is contained in an extended partition that does.
+Of the chain of extended partitions, usually only the first is
+shown. (The others have no name under Linux anyway.) But
+these additional extended partitions can be made visible:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% sfdisk -l -x /dev/hda
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;   Device Boot Start     End   #cyls   #blocks   Id  System
+/dev/hda1          0+      5       6-     1223+   a  OS/2 Boot Manager
+/dev/hda2          6     256     251     51204    6  DOS 16-bit FAT &amp;gt;=32M
+/dev/hda3        257    1023     767    156468    5  Extended
+/dev/hda4          0       -       0         0    0  Empty
+
+/dev/hda5        257+    357     101-    20603+   4  DOS 16-bit FAT &amp;lt;32M
+    -            358    1023     666    135864    5  Extended
+    -            257     256       0         0    0  Empty
+    -            257     256       0         0    0  Empty
+
+/dev/hda6        358+    438      81-    16523+  82  Linux swap
+    -            439    1023     585    119340    5  Extended
+    -            358     357       0         0    0  Empty
+    -            358     357       0         0    0  Empty
+
+/dev/hda7        439+   1023     585-   119339+  83  Linux native
+    -            439     438       0         0    0  Empty
+    -            439     438       0         0    0  Empty
+    -            439     438       0         0    0  Empty
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Why the empty 4th input line? The description of the extended partitions
+starts after that of the four primary partitions.
+You force an empty partition with a &amp;ldquo;,0&amp;rdquo; input line, but here all
+space was divided already, so the fourth partition became empty
+automatically.&lt;/p&gt;
+
+&lt;p&gt;How did I know about 4,6,a,E,S? Well, &lt;strong&gt;E,S,L&lt;/strong&gt; stand for &lt;em&gt;Extended&lt;/em&gt;,
+&lt;em&gt;Swap&lt;/em&gt; and &lt;em&gt;Linux&lt;/em&gt;. The other values are hexadecimal and come from
+the table:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;% sfdisk -T
+Id  Name
+
+ 0  Empty
+ 1  DOS 12-bit FAT
+ 2  XENIX root
+ 3  XENIX usr
+ 4  DOS 16-bit FAT &amp;lt;32M
+ 5  Extended
+ 6  DOS 16-bit FAT &amp;gt;=32M
+ 7  OS/2 HPFS or QNX or Advanced UNIX
+ 8  AIX data
+ 9  AIX boot or Coherent
+ a  OS/2 Boot Manager
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Ref:&lt;/p&gt;
+
+&lt;p&gt;/usr/share/doc/util-linux/examples/sfdisk.examples.gz&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Wp2Hugo</title>
