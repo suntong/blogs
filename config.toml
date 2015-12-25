@@ -3,7 +3,7 @@ canonifyurls = true
 languageCode = "en-us"
 title = "Sfxpt Blog"
 # Enable comments by entering your Disqus shortname
-disqusShortname = "sfxpt"
+disqusShortname = "Xpt"
 # Enable Google Analytics by entering your tracking code
 googleAnalytics = ""
 # Define the number of posts per site
