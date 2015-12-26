@@ -6,8 +6,324 @@
     <description>Recent content on Sfxpt Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 25 Dec 2015 16:32:39 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 26 Dec 2015 00:04:56 -0500</lastBuildDate>
     <atom:link href="https://suntong.github.io/blogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Creating GPT partitions easily on the command line</title>
+      <link>https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line</link>
+      <pubDate>Sat, 26 Dec 2015 00:04:56 -0500</pubDate>
+      
+      <guid>https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line</guid>
+      <description>
+
+&lt;!--
+[category Tech][tags Debian,Ubuntu,Linux,partition,GPT,go,easygen,CLI]
+--&gt;
+
+&lt;h2 id=&#34;incentives:9b45ead03ca9ede4573dfc02fa232f27&#34;&gt;Incentives&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;ve long been enjoying using &lt;code&gt;sfdisk&lt;/code&gt; to manipulate my disk partitions. I always use it to,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://xpt.sourceforge.net/techdocs/nix/disk/general/disk01-PartitionTools/index.html#cmd_sfdisk&#34;&gt;change the boot device&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://xpt.sourceforge.net/techdocs/nix/disk/general/disk01-PartitionTools/index.html#save_restore_disk_partition_setting_and_fix_errors_using_sfdisk&#34;&gt;save/restore disk partition setting and fix errors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;or even, &lt;a href=&#34;https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks&#34;&gt;create disk partitions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When my disks are over 2T in size, I can&amp;rsquo;t use MBR and therefore can&amp;rsquo;t use &lt;code&gt;sfdisk&lt;/code&gt; anymore. I have to use GPT instead. My first GPT partitions was created using GUI tools, but I really hate GUI tools. So this time when I need to partition GPT again, I look for the command line alternative instead.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;problem&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-problem:9b45ead03ca9ede4573dfc02fa232f27&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a command line tool, &lt;code&gt;sgdisk&lt;/code&gt;, to create GPT partitions, but its command line interface is inhuman, if not insane. Here is the example given by the &lt;code&gt;sgdisk&lt;/code&gt; author, from &lt;a href=&#34;http://www.rodsbooks.com/gdisk/sgdisk-walkthrough.html&#34;&gt;Creating Scripts for Partition Manipulation&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#!/bin/bash
+sgdisk -og $1
+sgdisk -n 1:2048:4095 -c 1:&amp;quot;BIOS Boot Partition&amp;quot; -t 1:ef02 $1
+sgdisk -n 2:4096:413695 -c 2:&amp;quot;EFI System Partition&amp;quot; -t 2:ef00 $1
+sgdisk -n 3:413696:823295 -c 3:&amp;quot;Linux /boot&amp;quot; -t 3:8300 $1
+ENDSECTOR=`sgdisk -E $1`
+sgdisk -n 4:823296:$ENDSECTOR -c 4:&amp;quot;Linux LVM&amp;quot; -t 4:8e00 $1
+sgdisk -p $1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As the comparison, to &lt;a href=&#34;https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks&#34;&gt;create disk partitions using &lt;code&gt;sfdisk&lt;/code&gt;&lt;/a&gt;), here are two examples:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Three primary partitions: two of size 50MB and the rest:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sfdisk /dev/hda -uM &amp;lt;&amp;lt; EOF
+,50
+,50
+;
+EOF
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;A 1MB OS2 Boot Manager partition, a 50MB DOS partition,
+and three extended partitions (DOS D:, Linux swap, Linux):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sfdisk /dev/hda -uM &amp;lt;&amp;lt; EOF
+,1,a
+,50,6
+,,E
+;
+,20,4
+,16,S
+;
+EOF
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As you can see, it is so simple. Coming from the simple &lt;code&gt;sfdisk&lt;/code&gt; and landed at the complicated &lt;code&gt;sgdisk&lt;/code&gt;, on looking at the above example, I realize that there is no way I can write the above &lt;code&gt;sgdisk&lt;/code&gt; code by hand, i.e., I need a tool to write it for me. Of course, the first tool that came into mind is the &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;universal code generator, easygen&lt;/a&gt;. After poking around here and there, I &lt;a href=&#34;https://github.com/suntong/easygen/commit/8b223d1f20993feb6acfde2bf40a10033eb728d5&#34;&gt;made it&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;solution&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-solution:9b45ead03ca9ede4573dfc02fa232f27&#34;&gt;The solution&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So to use the &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;universal code generator, easygen&lt;/a&gt; to create GPT partitions, first we need to define our partitions layout in an easy format as the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Disk: /dev/sdb
+
+# Common Partitions Types
+#
+# 8300 Linux filesystem
+# 8200 linux swap
+# fd00 linux raid
+# ef02 BIOS boot
+# 0700 Microsoft basic data
+#
+# For more GPT Partitions Types,
+# echo L | gdisk /dev/sdb
+
+Partitions:
+  - Name: bios_boot
+    Type: ef02
+    Size: +200M
+
+  - Name: linux_boot
+    Type: 8300
+    Size: +20G
+
+  - Name: windows
+    Type: &amp;quot;0700&amp;quot;
+    Size: +30G
+
+  - Name: linux_swap
+    Type: 8200
+    Size: +10G
+
+  - Name: os1
+    Type: 8300
+    Size: +12G
+
+  - Name: os2
+    Type: 8300
+    Size: +12G
+
+  - Name: os3
+    Type: 8300
+    Size: +12G
+
+  - Name: data
+    Type: 8300
+    Size: &amp;quot;0&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I.e., for each partition, we need to give its name, type and size. For your convenient, I&amp;rsquo;ve put the mostly used GPT types in the comment, as shown above.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s the hardest part, the rest are simple and straightforward, to generate partition creation code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;easygen test/sgdisk | tee test/sgdisk.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; # format /dev/sdb as GPT, GUID Partition Table
+ sgdisk -Z /dev/sdb
+
+ sgdisk -n 0:0:+200M -t 0:ef02 -c 0:&amp;quot;bios_boot&amp;quot; /dev/sdb
+ sgdisk -n 0:0:+20G -t 0:8300 -c 0:&amp;quot;linux_boot&amp;quot; /dev/sdb
+ sgdisk -n 0:0:+30G -t 0:0700 -c 0:&amp;quot;windows&amp;quot; /dev/sdb
+ sgdisk -n 0:0:+10G -t 0:8200 -c 0:&amp;quot;linux_swap&amp;quot; /dev/sdb
+ sgdisk -n 0:0:+12G -t 0:8300 -c 0:&amp;quot;os1&amp;quot; /dev/sdb
+ sgdisk -n 0:0:+12G -t 0:8300 -c 0:&amp;quot;os2&amp;quot; /dev/sdb
+ sgdisk -n 0:0:+12G -t 0:8300 -c 0:&amp;quot;os3&amp;quot; /dev/sdb
+ sgdisk -n 0:0:0 -t 0:8300 -c 0:&amp;quot;data&amp;quot; /dev/sdb
+
+ sgdisk -p /dev/sdb
+
+ # inform the OS of partition table changes
+ partprobe /dev/sdb
+ fdisk -l /dev/sdb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After carefully read &lt;a href=&#34;http://www.rodsbooks.com/gdisk/sgdisk.html&#34;&gt;&lt;code&gt;sgdisk&lt;/code&gt;&amp;rsquo;s man page&lt;/a&gt;, I found it is not that insane or inhuman, but just powerful after all.&lt;/p&gt;
+
+&lt;p&gt;The result will be exactly as we are expecting:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sgdisk -p /dev/sdb
+Disk /dev/sdb: 732558336 sectors, 2.7 TiB
+Logical sector size: 4096 bytes
+Disk identifier (GUID): C4426321-9726-4022-BB20-2EF00B490465
+Partition table holds up to 128 entries
+First usable sector is 6, last usable sector is 732558330
+Partitions will be aligned on 256-sector boundaries
+Total free space is 250 sectors (1000.0 KiB)
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1             256           51455   200.0 MiB   EF02  bios_boot
+   2           51456         5294335   20.0 GiB    8300  linux_boot
+   3         5294336        13158655   30.0 GiB    0700  windows
+   4        13158656        15780095   10.0 GiB    8200  linux_swap
+   5        15780096        18925823   12.0 GiB    8300  os1
+   6        18925824        22071551   12.0 GiB    8300  os2
+   7        22071552        25217279   12.0 GiB    8300  os3
+   8        25217280       732558330   2.6 TiB     8300  data
+
+$ fdisk -l /dev/sdb
+
+Disk /dev/sdb: 2.7 TiB, 3000558944256 bytes, 732558336 sectors
+Units: sectors of 1 * 4096 = 4096 bytes
+Sector size (logical/physical): 4096 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: gpt
+Disk identifier: C4426321-9726-4022-BB20-2EF00B490465
+
+Device        Start       End   Sectors  Size Type
+/dev/sdb1       256     51455     51200  200M BIOS boot
+/dev/sdb2     51456   5294335   5242880   20G Linux filesystem
+/dev/sdb3   5294336  13158655   7864320   30G Microsoft basic data
+/dev/sdb4  13158656  15780095   2621440   10G Linux swap
+/dev/sdb5  15780096  18925823   3145728   12G Linux filesystem
+/dev/sdb6  18925824  22071551   3145728   12G Linux filesystem
+/dev/sdb7  22071552  25217279   3145728   12G Linux filesystem
+/dev/sdb8  25217280 732558330 707341051  2.7T Linux filesystem
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;is-it-better:9b45ead03ca9ede4573dfc02fa232f27&#34;&gt;Is it better?&lt;/h2&gt;
+
+&lt;p&gt;I know most GUI lovers would laugh at my &lt;em&gt;silly&lt;/em&gt; action. I just know them so well that I can imagine exactly what the conversion would be, as follows (&lt;strong&gt;T&lt;/strong&gt; stands for &amp;ldquo;they&amp;rdquo;, whereas &lt;strong&gt;M&lt;/strong&gt; stands for me):&lt;/p&gt;
+
+&lt;dl&gt;
+&lt;dt&gt;T&lt;/dt&gt;
+&lt;dd&gt;&lt;em&gt;&amp;ldquo;Ha, you are making this more complicated&amp;rdquo;&lt;/em&gt;&lt;/dd&gt;
+&lt;dt&gt;M&lt;/dt&gt;
+&lt;dd&gt;No, I think I&amp;rsquo;m making it simpler. For example, the data definition (&lt;code&gt;.yaml&lt;/code&gt;) file not only serves the purpose of generating the partition-creation code, but also serves the purpose of documentation as well.&lt;/dd&gt;
+&lt;dt&gt;T&lt;/dt&gt;
+&lt;dd&gt;&lt;em&gt;You are just kidding me, the best way to document is to take a screenshot&lt;/em&gt;&lt;/dd&gt;
+&lt;dt&gt;M&lt;/dt&gt;
+&lt;dd&gt;Well, I disagree. What if you want to do it again?&lt;/dd&gt;
+&lt;dt&gt;T&lt;/dt&gt;
+&lt;dd&gt;&lt;em&gt;That&amp;rsquo;s so simple. I just need to find out where I store my screenshot, and I can easily redo it again&lt;/em&gt;&lt;/dd&gt;
+&lt;dt&gt;M&lt;/dt&gt;
+&lt;dd&gt;From the GUI, doing the clicking all over again?&lt;/dd&gt;
+&lt;dt&gt;T&lt;/dt&gt;
+&lt;dd&gt;&lt;em&gt;Definitely. Who want to learn or use your silly way?&lt;/em&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Oh, well, my tools is definitely not for them, no matter how hard I&amp;rsquo;d like to try. I think that it is the mentality conflicting between the two camps, the Microsoft spoiled dummies, and die-hard text-everything Unix fans. Personally, I view WYSIWYG GUI tools as carving stones with chisels, and text-based/command-line tools as operating CNC machines. Yes, sure there are strict rules and steep learning curves regarding the CNC machines, but once you are over that fear and hurdle, the benefits or possibilities are endless.&lt;/p&gt;
+
+&lt;p&gt;Talking about partition creation, let alone doing it again on a different machine, even on the same machine, I need to do it several times, because nobody can achieve the perfect score with a single shot without any prior practices. I can&amp;rsquo;t. Doing the clicking over and over again will wear me out very fast, and I most probably would end up with a less optimal setting that I&amp;rsquo;ll be regretting since. Using the &lt;code&gt;.yaml&lt;/code&gt; file and code generation, it&amp;rsquo;ll be nearly &amp;ldquo;zero cost&amp;rdquo;, I can do it over and over again until I&amp;rsquo;m fully satisfied.&lt;/p&gt;
+
+&lt;p&gt;Let alone doing it several times, even just doing it once can be simplified by the &lt;code&gt;.yaml&lt;/code&gt; file as well. Here is a piece of my actual GPT partition definition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  - Name: os1p
+    Type: 8300
+    Size: +12G
+
+  - Name: os1s
+    Type: 8300
+    Size: +12G
+
+  - Name: os11
+    Type: 8300
+    Size: +8G
+
+  - Name: os12
+    Type: 8300
+    Size: +8G
+
+  - Name: os13
+    Type: 8300
+    Size: +8G
+
+  - Name: os2p
+    Type: 8300
+    Size: +12G
+
+  - Name: os2s
+    Type: 8300
+    Size: +12G
+
+  - Name: os21
+    Type: 8300
+    Size: +8G
+
+  - Name: os22
+    Type: 8300
+    Size: +8G
+
+  - Name: os23
+    Type: 8300
+    Size: +8G
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;d like to keep a lot of OS partitions for me to try new things or keeping the old systems so that I can go back to them any time. In the above listing, I have two sets of OS partitions, &lt;code&gt;os1x&lt;/code&gt; and &lt;code&gt;os2x&lt;/code&gt;, each with two big partitions (12G), primary and secondary, and three smaller partitions (8G). Using a text editor, I can quickly duplicate the first entry into the first full set, then into both the two sets, without too much trouble. Doing from GUI, not a single chiseling I can save. Err, I meant clicking.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;advantages&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-advantages:9b45ead03ca9ede4573dfc02fa232f27&#34;&gt;The advantages&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;.yaml&lt;/code&gt; file and code generation will&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;serve both the purpose of action and documentation.&lt;/li&gt;
+&lt;li&gt;make it very simple to redo/reuse, regardless to different machines, or to the same machines; many times, or just once.&lt;/li&gt;
+&lt;li&gt;give me a clearer content. Instead of the exact &lt;code&gt;sgdisk&lt;/code&gt; commands, i.e., the implementation details, the file contains only each partition&amp;rsquo;s name, type and size. Clear and straight to the point. No trivial details are in the way.&lt;/li&gt;
+&lt;li&gt;of course, it also gives the benefit of coding and documenting at the same place. More reasons can be documented in the &lt;code&gt;.yaml&lt;/code&gt; file, the same way as comments make code-purpose clearer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here is the bonus, once the data definition (&lt;code&gt;.yaml&lt;/code&gt;) file is in place, you can do all sorts of other things you want.&lt;/p&gt;
+
+&lt;p&gt;E.g., how about managing the mount-points?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ easygen -tf test/sgdisk-mp test/sgdisk
+
+ mkdir /mnt/bios_boot
+ mkdir /mnt/linux_boot
+ mkdir /mnt/windows
+ mkdir /mnt/linux_swap
+ mkdir /mnt/os1
+ mkdir /mnt/os2
+ mkdir /mnt/os3
+ mkdir /mnt/data
+
+
+ mount LABEL=bios_boot /mnt/bios_boot
+ mount LABEL=linux_boot /mnt/linux_boot
+ mount LABEL=windows /mnt/windows
+ mount LABEL=linux_swap /mnt/linux_swap
+ mount LABEL=os1 /mnt/os1
+ mount LABEL=os2 /mnt/os2
+ mount LABEL=os3 /mnt/os3
+ mount LABEL=data /mnt/data
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Generating the &lt;code&gt;fstab&lt;/code&gt; entries are as simple as above as well. Or, how about using &lt;code&gt;mkfs&lt;/code&gt; to format each partition? Simple as well.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll explain more on &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;the easy to use universal code/text generator easygen&lt;/a&gt; next. Meanwhile, you can check out what we have &lt;a href=&#34;https://github.com/suntong001/blog/blob/master/GoOptP7-easygen.md&#34;&gt;covered&lt;/a&gt; already  &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/04/easygen-is-now-coding-itself/&#34;&gt;before&lt;/a&gt;, including &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/10/easygen-for-mock-up/&#34;&gt;mock-up generation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Use sfdisk to partition disks</title>

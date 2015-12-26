@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>Sfxpt Blog &middot; Sfxpt Blog</title>
+    <title>Creating GPT partitions easily on the command line &middot; Sfxpt Blog</title>
     <meta name="generator" content="Hugo 0.15" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Xpt">
     <meta name="description" content="Sfxpt&#39;s blogs">
-    
-      <link href="https://suntong.github.io/blogs/index.xml" rel="alternate" type="application/rss+xml" title="Sfxpt Blog" />
-      <link href="https://suntong.github.io/blogs/index.xml" rel="feed" type="application/rss+xml" title="Sfxpt Blog" />
     
     <link rel="icon" href="https://suntong.github.io/blogs/favicon.ico">
     <link rel="apple-touch-icon" href="https://suntong.github.io/blogs/apple-touch-icon.png" />
@@ -19,12 +16,26 @@
     <link rel="stylesheet" href="https://suntong.github.io/blogs/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="Sfxpt Blog" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://suntong.github.io/blogs/" />
+    <meta property="og:title" content="Creating GPT partitions easily on the command line" />
+<meta property="og:description" content="
+
+Incentives
+
+I&rsquo;ve long been enjoying using sfdisk to manipulate my disk partitions. I always use it to,
 
 
+change the boot device
+save/restore disk partition setting and fix errors
+or even, create disk partitions
+
+
+When my disks are over 2T in size, I can&rsquo;t use MBR and therefore can&rsquo;t use sfdisk anymore. I have to use GPT instead. My first GPT partitions was created using GUI tools, but I really hate GUI tools. So this time when I need to partition GPT again, I look for the command line alternative instead.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line" />
+
+
+<meta property="og:updated_time" content="2015-12-26T00:04:56-05:00"/>
 
 
 
@@ -37,18 +48,59 @@
 
     
     
-<meta itemprop="name" content="Sfxpt Blog">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="Creating GPT partitions easily on the command line">
+<meta itemprop="description" content="
 
+Incentives
+
+I&rsquo;ve long been enjoying using sfdisk to manipulate my disk partitions. I always use it to,
+
+
+change the boot device
+save/restore disk partition setting and fix errors
+or even, create disk partitions
+
+
+When my disks are over 2T in size, I can&rsquo;t use MBR and therefore can&rsquo;t use sfdisk anymore. I have to use GPT instead. My first GPT partitions was created using GUI tools, but I really hate GUI tools. So this time when I need to partition GPT again, I look for the command line alternative instead.
+">
+
+
+<meta itemprop="dateModified" content="2015-12-26T00:04:56-05:00" />
+<meta itemprop="wordCount" content="1600">
+
+
+
+<meta itemprop="keywords" content="tech,cli,debian,easygen,go,gpt,hugo,linux,markdown,partition,ubuntu," />
 
     
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Creating GPT partitions easily on the command line"/>
+<meta name="twitter:description" content="
+
+Incentives
+
+I&rsquo;ve long been enjoying using sfdisk to manipulate my disk partitions. I always use it to,
+
+
+change the boot device
+save/restore disk partition setting and fix errors
+or even, create disk partitions
+
+
+When my disks are over 2T in size, I can&rsquo;t use MBR and therefore can&rsquo;t use sfdisk anymore. I have to use GPT instead. My first GPT partitions was created using GUI tools, but I really hate GUI tools. So this time when I need to partition GPT again, I look for the command line alternative instead.
+"/>
+
+
+
 </head>
 <body>
 <div class="container">
 
-
-<div id="container">
-    <header id="header">
+<header id="header">
   <div id="header-main" class="header-inner">
     <div class="outer">
       <a href="https://suntong.github.io/blogs/" id="logo"><i class="logo" style="background-image: url('https://suntong.github.io/blogs/css/images/logo.png')"></i><span class="site-title">Sfxpt Blog</span></a>
@@ -132,7 +184,8 @@
 </header>
 
 
-    <div class="outer">
+<div id="container">
+   <div class="outer">
     <aside id="profile">
   <div class="inner profile-inner">
     <div class="base-info profile-block">
@@ -213,7 +266,7 @@
 
 
 
-          <td><a href="https://suntong.github.io/blogs/index.xml" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+          <td><a href="" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
         </tr>
       </table>
     </div>
@@ -221,12 +274,9 @@
 </aside>
 
     <section id="main">
-    
-    
-    <article class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
         <div class="article-inner">
             
-            </a>
 
             <header class="article-header">
     <a href="https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line">
@@ -291,8 +341,9 @@
 </header>
 
             <div class="article-entry" itemprop="articleBody">
-                <p>
-                    <!--
+                
+
+<!--
 [category Tech][tags Debian,Ubuntu,Linux,partition,GPT,go,easygen,CLI]
 -->
 
@@ -306,14 +357,298 @@
 <li>or even, <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks">create disk partitions</a></li>
 </ul>
 
-<p>When my disks are over 2T in size, I can&rsquo;t use MBR and therefore can&rsquo;t use <code>sfdisk</code> anymore. I have to use GPT instead. My first GPT partitions was created using GUI tools, but I really hate GUI tools. So this time when I need to partition GPT again, I look for the command line alternative instead.
-                    <br>
-                </p>
-                <p class="article-more-link">
-                    <a href="https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line">
-                        Read more
-                    </a>
-                </p>
+<p>When my disks are over 2T in size, I can&rsquo;t use MBR and therefore can&rsquo;t use <code>sfdisk</code> anymore. I have to use GPT instead. My first GPT partitions was created using GUI tools, but I really hate GUI tools. So this time when I need to partition GPT again, I look for the command line alternative instead.</p>
+
+<p><a name="problem"/></p>
+
+<h2 id="the-problem:9b45ead03ca9ede4573dfc02fa232f27">The problem</h2>
+
+<p><a href="https://suntong.github.io/blogs/"> </a></p>
+
+<p>There is a command line tool, <code>sgdisk</code>, to create GPT partitions, but its command line interface is inhuman, if not insane. Here is the example given by the <code>sgdisk</code> author, from <a href="http://www.rodsbooks.com/gdisk/sgdisk-walkthrough.html">Creating Scripts for Partition Manipulation</a>:</p>
+
+<pre><code class="language-bash">#!/bin/bash
+sgdisk -og $1
+sgdisk -n 1:2048:4095 -c 1:&quot;BIOS Boot Partition&quot; -t 1:ef02 $1
+sgdisk -n 2:4096:413695 -c 2:&quot;EFI System Partition&quot; -t 2:ef00 $1
+sgdisk -n 3:413696:823295 -c 3:&quot;Linux /boot&quot; -t 3:8300 $1
+ENDSECTOR=`sgdisk -E $1`
+sgdisk -n 4:823296:$ENDSECTOR -c 4:&quot;Linux LVM&quot; -t 4:8e00 $1
+sgdisk -p $1
+</code></pre>
+
+<p>As the comparison, to <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks">create disk partitions using <code>sfdisk</code></a>), here are two examples:</p>
+
+<ul>
+<li><p>Three primary partitions: two of size 50MB and the rest:</p>
+
+<pre><code>sfdisk /dev/hda -uM &lt;&lt; EOF
+,50
+,50
+;
+EOF
+</code></pre></li>
+
+<li><p>A 1MB OS2 Boot Manager partition, a 50MB DOS partition,
+and three extended partitions (DOS D:, Linux swap, Linux):</p>
+
+<pre><code>sfdisk /dev/hda -uM &lt;&lt; EOF
+,1,a
+,50,6
+,,E
+;
+,20,4
+,16,S
+;
+EOF
+</code></pre></li>
+</ul>
+
+<p>As you can see, it is so simple. Coming from the simple <code>sfdisk</code> and landed at the complicated <code>sgdisk</code>, on looking at the above example, I realize that there is no way I can write the above <code>sgdisk</code> code by hand, i.e., I need a tool to write it for me. Of course, the first tool that came into mind is the <a href="https://github.com/suntong/easygen">universal code generator, easygen</a>. After poking around here and there, I <a href="https://github.com/suntong/easygen/commit/8b223d1f20993feb6acfde2bf40a10033eb728d5">made it</a>.</p>
+
+<p><a name="solution"/></p>
+
+<h2 id="the-solution:9b45ead03ca9ede4573dfc02fa232f27">The solution</h2>
+
+<p><a href="https://suntong.github.io/blogs/"> </a></p>
+
+<p>So to use the <a href="https://github.com/suntong/easygen">universal code generator, easygen</a> to create GPT partitions, first we need to define our partitions layout in an easy format as the following:</p>
+
+<pre><code>Disk: /dev/sdb
+
+# Common Partitions Types
+#
+# 8300 Linux filesystem
+# 8200 linux swap
+# fd00 linux raid
+# ef02 BIOS boot
+# 0700 Microsoft basic data
+#
+# For more GPT Partitions Types,
+# echo L | gdisk /dev/sdb
+
+Partitions:
+  - Name: bios_boot
+    Type: ef02
+    Size: +200M
+
+  - Name: linux_boot
+    Type: 8300
+    Size: +20G
+
+  - Name: windows
+    Type: &quot;0700&quot;
+    Size: +30G
+
+  - Name: linux_swap
+    Type: 8200
+    Size: +10G
+
+  - Name: os1
+    Type: 8300
+    Size: +12G
+
+  - Name: os2
+    Type: 8300
+    Size: +12G
+
+  - Name: os3
+    Type: 8300
+    Size: +12G
+
+  - Name: data
+    Type: 8300
+    Size: &quot;0&quot;
+</code></pre>
+
+<p>I.e., for each partition, we need to give its name, type and size. For your convenient, I&rsquo;ve put the mostly used GPT types in the comment, as shown above.</p>
+
+<p>That&rsquo;s the hardest part, the rest are simple and straightforward, to generate partition creation code:</p>
+
+<pre><code>easygen test/sgdisk | tee test/sgdisk.sh
+</code></pre>
+
+<p>The result:</p>
+
+<pre><code class="language-bash"> # format /dev/sdb as GPT, GUID Partition Table
+ sgdisk -Z /dev/sdb
+
+ sgdisk -n 0:0:+200M -t 0:ef02 -c 0:&quot;bios_boot&quot; /dev/sdb
+ sgdisk -n 0:0:+20G -t 0:8300 -c 0:&quot;linux_boot&quot; /dev/sdb
+ sgdisk -n 0:0:+30G -t 0:0700 -c 0:&quot;windows&quot; /dev/sdb
+ sgdisk -n 0:0:+10G -t 0:8200 -c 0:&quot;linux_swap&quot; /dev/sdb
+ sgdisk -n 0:0:+12G -t 0:8300 -c 0:&quot;os1&quot; /dev/sdb
+ sgdisk -n 0:0:+12G -t 0:8300 -c 0:&quot;os2&quot; /dev/sdb
+ sgdisk -n 0:0:+12G -t 0:8300 -c 0:&quot;os3&quot; /dev/sdb
+ sgdisk -n 0:0:0 -t 0:8300 -c 0:&quot;data&quot; /dev/sdb
+
+ sgdisk -p /dev/sdb
+
+ # inform the OS of partition table changes
+ partprobe /dev/sdb
+ fdisk -l /dev/sdb
+</code></pre>
+
+<p>After carefully read <a href="http://www.rodsbooks.com/gdisk/sgdisk.html"><code>sgdisk</code>&rsquo;s man page</a>, I found it is not that insane or inhuman, but just powerful after all.</p>
+
+<p>The result will be exactly as we are expecting:</p>
+
+<pre><code>$ sgdisk -p /dev/sdb
+Disk /dev/sdb: 732558336 sectors, 2.7 TiB
+Logical sector size: 4096 bytes
+Disk identifier (GUID): C4426321-9726-4022-BB20-2EF00B490465
+Partition table holds up to 128 entries
+First usable sector is 6, last usable sector is 732558330
+Partitions will be aligned on 256-sector boundaries
+Total free space is 250 sectors (1000.0 KiB)
+
+Number  Start (sector)    End (sector)  Size       Code  Name
+   1             256           51455   200.0 MiB   EF02  bios_boot
+   2           51456         5294335   20.0 GiB    8300  linux_boot
+   3         5294336        13158655   30.0 GiB    0700  windows
+   4        13158656        15780095   10.0 GiB    8200  linux_swap
+   5        15780096        18925823   12.0 GiB    8300  os1
+   6        18925824        22071551   12.0 GiB    8300  os2
+   7        22071552        25217279   12.0 GiB    8300  os3
+   8        25217280       732558330   2.6 TiB     8300  data
+
+$ fdisk -l /dev/sdb
+
+Disk /dev/sdb: 2.7 TiB, 3000558944256 bytes, 732558336 sectors
+Units: sectors of 1 * 4096 = 4096 bytes
+Sector size (logical/physical): 4096 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: gpt
+Disk identifier: C4426321-9726-4022-BB20-2EF00B490465
+
+Device        Start       End   Sectors  Size Type
+/dev/sdb1       256     51455     51200  200M BIOS boot
+/dev/sdb2     51456   5294335   5242880   20G Linux filesystem
+/dev/sdb3   5294336  13158655   7864320   30G Microsoft basic data
+/dev/sdb4  13158656  15780095   2621440   10G Linux swap
+/dev/sdb5  15780096  18925823   3145728   12G Linux filesystem
+/dev/sdb6  18925824  22071551   3145728   12G Linux filesystem
+/dev/sdb7  22071552  25217279   3145728   12G Linux filesystem
+/dev/sdb8  25217280 732558330 707341051  2.7T Linux filesystem
+</code></pre>
+
+<h2 id="is-it-better:9b45ead03ca9ede4573dfc02fa232f27">Is it better?</h2>
+
+<p>I know most GUI lovers would laugh at my <em>silly</em> action. I just know them so well that I can imagine exactly what the conversion would be, as follows (<strong>T</strong> stands for &ldquo;they&rdquo;, whereas <strong>M</strong> stands for me):</p>
+
+<dl>
+<dt>T</dt>
+<dd><em>&ldquo;Ha, you are making this more complicated&rdquo;</em></dd>
+<dt>M</dt>
+<dd>No, I think I&rsquo;m making it simpler. For example, the data definition (<code>.yaml</code>) file not only serves the purpose of generating the partition-creation code, but also serves the purpose of documentation as well.</dd>
+<dt>T</dt>
+<dd><em>You are just kidding me, the best way to document is to take a screenshot</em></dd>
+<dt>M</dt>
+<dd>Well, I disagree. What if you want to do it again?</dd>
+<dt>T</dt>
+<dd><em>That&rsquo;s so simple. I just need to find out where I store my screenshot, and I can easily redo it again</em></dd>
+<dt>M</dt>
+<dd>From the GUI, doing the clicking all over again?</dd>
+<dt>T</dt>
+<dd><em>Definitely. Who want to learn or use your silly way?</em></dd>
+</dl>
+
+<p>Oh, well, my tools is definitely not for them, no matter how hard I&rsquo;d like to try. I think that it is the mentality conflicting between the two camps, the Microsoft spoiled dummies, and die-hard text-everything Unix fans. Personally, I view WYSIWYG GUI tools as carving stones with chisels, and text-based/command-line tools as operating CNC machines. Yes, sure there are strict rules and steep learning curves regarding the CNC machines, but once you are over that fear and hurdle, the benefits or possibilities are endless.</p>
+
+<p>Talking about partition creation, let alone doing it again on a different machine, even on the same machine, I need to do it several times, because nobody can achieve the perfect score with a single shot without any prior practices. I can&rsquo;t. Doing the clicking over and over again will wear me out very fast, and I most probably would end up with a less optimal setting that I&rsquo;ll be regretting since. Using the <code>.yaml</code> file and code generation, it&rsquo;ll be nearly &ldquo;zero cost&rdquo;, I can do it over and over again until I&rsquo;m fully satisfied.</p>
+
+<p>Let alone doing it several times, even just doing it once can be simplified by the <code>.yaml</code> file as well. Here is a piece of my actual GPT partition definition:</p>
+
+<pre><code>  - Name: os1p
+    Type: 8300
+    Size: +12G
+
+  - Name: os1s
+    Type: 8300
+    Size: +12G
+
+  - Name: os11
+    Type: 8300
+    Size: +8G
+
+  - Name: os12
+    Type: 8300
+    Size: +8G
+
+  - Name: os13
+    Type: 8300
+    Size: +8G
+
+  - Name: os2p
+    Type: 8300
+    Size: +12G
+
+  - Name: os2s
+    Type: 8300
+    Size: +12G
+
+  - Name: os21
+    Type: 8300
+    Size: +8G
+
+  - Name: os22
+    Type: 8300
+    Size: +8G
+
+  - Name: os23
+    Type: 8300
+    Size: +8G
+</code></pre>
+
+<p>I&rsquo;d like to keep a lot of OS partitions for me to try new things or keeping the old systems so that I can go back to them any time. In the above listing, I have two sets of OS partitions, <code>os1x</code> and <code>os2x</code>, each with two big partitions (12G), primary and secondary, and three smaller partitions (8G). Using a text editor, I can quickly duplicate the first entry into the first full set, then into both the two sets, without too much trouble. Doing from GUI, not a single chiseling I can save. Err, I meant clicking.</p>
+
+<p><a name="advantages"/></p>
+
+<h2 id="the-advantages:9b45ead03ca9ede4573dfc02fa232f27">The advantages</h2>
+
+<p><a href="https://suntong.github.io/blogs/"> </a></p>
+
+<p>The <code>.yaml</code> file and code generation will</p>
+
+<ul>
+<li>serve both the purpose of action and documentation.</li>
+<li>make it very simple to redo/reuse, regardless to different machines, or to the same machines; many times, or just once.</li>
+<li>give me a clearer content. Instead of the exact <code>sgdisk</code> commands, i.e., the implementation details, the file contains only each partition&rsquo;s name, type and size. Clear and straight to the point. No trivial details are in the way.</li>
+<li>of course, it also gives the benefit of coding and documenting at the same place. More reasons can be documented in the <code>.yaml</code> file, the same way as comments make code-purpose clearer.</li>
+</ul>
+
+<p>Here is the bonus, once the data definition (<code>.yaml</code>) file is in place, you can do all sorts of other things you want.</p>
+
+<p>E.g., how about managing the mount-points?</p>
+
+<pre><code>$ easygen -tf test/sgdisk-mp test/sgdisk
+
+ mkdir /mnt/bios_boot
+ mkdir /mnt/linux_boot
+ mkdir /mnt/windows
+ mkdir /mnt/linux_swap
+ mkdir /mnt/os1
+ mkdir /mnt/os2
+ mkdir /mnt/os3
+ mkdir /mnt/data
+
+
+ mount LABEL=bios_boot /mnt/bios_boot
+ mount LABEL=linux_boot /mnt/linux_boot
+ mount LABEL=windows /mnt/windows
+ mount LABEL=linux_swap /mnt/linux_swap
+ mount LABEL=os1 /mnt/os1
+ mount LABEL=os2 /mnt/os2
+ mount LABEL=os3 /mnt/os3
+ mount LABEL=data /mnt/data
+</code></pre>
+
+<p>Generating the <code>fstab</code> entries are as simple as above as well. Or, how about using <code>mkfs</code> to format each partition? Simple as well.</p>
+
+<p>I&rsquo;ll explain more on <a href="https://github.com/suntong/easygen">the easy to use universal code/text generator easygen</a> next. Meanwhile, you can check out what we have <a href="https://github.com/suntong001/blog/blob/master/GoOptP7-easygen.md">covered</a> already  <a href="https://sfxpt.wordpress.com/2015/07/04/easygen-is-now-coding-itself/">before</a>, including <a href="https://sfxpt.wordpress.com/2015/07/10/easygen-for-mock-up/">mock-up generation</a>.</p>
+
+<p>Stay tuned.</p>
+
             </div>
             <footer class="article-footer">
     <a data-url="https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line" data-id="9b45ead03ca9ede4573dfc02fa232f27" class="article-share-link">
@@ -327,249 +662,44 @@
 </footer>
 
         </div>
-    </article>
+
+        
+<nav id="article-nav">
     
-    <article class="article article-type-post" itemscope="" itemprop="blogPost">
-        <div class="article-inner">
-            
-            </a>
-
-            <header class="article-header">
-    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks">
-    <h1 class="article-title" itemprop="name">
-        Use sfdisk to partition disks
-    </h1>
-    </a>
-    <div class="article-meta">
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2015-12-25 16:32:39 -0500 EST" itemprop="datePublished">2015-12-25</time>
-            &middot;
-            860
-            words
-            &middot;
-            5
-            minute read
-        </div>
-        
-        
-        <div class="article-category">
-            <i class="fa fa-folder"></i>
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/categories/tech">Tech</a>
-            
-            
-        </div>
-        
-
-        
-        
-        <div class="article-category">
-            <i class="fa fa-tags"></i>
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/debian">Debian</a>
-            &middot;
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/ubuntu">Ubuntu</a>
-            &middot;
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/linux">Linux</a>
-            &middot;
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/partition">partition</a>
-            &middot;
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/cli">CLI</a>
-            
-            
-        </div>
-        
-    </div>
-</header>
-
-            <div class="article-entry" itemprop="articleBody">
-                <p>
-                    <!--
-[category Tech][tags Debian,Ubuntu,Linux,partition,CLI]
--->
-
-<p>I&rsquo;ve long been enjoying using <code>sfdisk</code> to manipulate my disk partitions, especially for creating disk partitions.
-                    <br>
-                </p>
-                <p class="article-more-link">
-                    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks">
-                        Read more
-                    </a>
-                </p>
-            </div>
-            <footer class="article-footer">
-    <a data-url="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks" data-id="d2003266fecc98ef045cd536251823f1" class="article-share-link">
-        Share
+    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Older
+      </strong>
+      <div class="article-nav-title">Use sfdisk to partition disks</div>
     </a>
     
-    <a href="https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks/#disqus_thread" class="article-comment-link">
-        Comments
-    </a>
+
     
-</footer>
-
-        </div>
-    </article>
-    
-    <article class="article article-type-post" itemscope="" itemprop="blogPost">
-        <div class="article-inner">
-            
-            </a>
-
-            <header class="article-header">
-    <a href="https://suntong.github.io/blogs/2015/12/06/wp2hugo">
-    <h1 class="article-title" itemprop="name">
-        Wp2Hugo
-    </h1>
-    </a>
-    <div class="article-meta">
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2015-12-06 09:26:47 -0500 EST" itemprop="datePublished">2015-12-06</time>
-            &middot;
-            239
-            words
-            &middot;
-            2
-            minute read
-        </div>
-        
-        
-        <div class="article-category">
-            <i class="fa fa-folder"></i>
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/categories/tech">Tech</a>
-            
-            
-        </div>
-        
-
-        
-        
-        <div class="article-category">
-            <i class="fa fa-tags"></i>
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/markdown">markdown</a>
-            &middot;
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/hugo">hugo</a>
-            
-            
-        </div>
-        
-    </div>
-</header>
-
-            <div class="article-entry" itemprop="articleBody">
-                <p>
-                    <h2 id="introduction:8a55f438c7f68ff2aceb1734b9746f11">Introduction</h2>
-
-<p>Wp2Hugo converts wordpress&rsquo;s markdown meta data format into Hugo&rsquo;s.
-                    <br>
-                </p>
-                <p class="article-more-link">
-                    <a href="https://suntong.github.io/blogs/2015/12/06/wp2hugo">
-                        Read more
-                    </a>
-                </p>
-            </div>
-            <footer class="article-footer">
-    <a data-url="https://suntong.github.io/blogs/2015/12/06/wp2hugo" data-id="8a55f438c7f68ff2aceb1734b9746f11" class="article-share-link">
-        Share
-    </a>
-    
-    <a href="https://suntong.github.io/blogs/2015/12/06/wp2hugo/#disqus_thread" class="article-comment-link">
-        Comments
-    </a>
-    
-</footer>
-
-        </div>
-    </article>
-    
-    <article class="article article-type-post" itemscope="" itemprop="blogPost">
-        <div class="article-inner">
-            
-            </a>
-
-            <header class="article-header">
-    <a href="https://suntong.github.io/blogs/2015/12/02/an-exhibit-of-markdown">
-    <h1 class="article-title" itemprop="name">
-        An exhibit of Markdown
-    </h1>
-    </a>
-    <div class="article-meta">
-        <div class="article-date">
-            <i class="fa fa-calendar"></i>
-            <time datetime="2015-12-02 23:21:16 -0500 EST" itemprop="datePublished">2015-12-02</time>
-            &middot;
-            953
-            words
-            &middot;
-            5
-            minute read
-        </div>
-        
-        
-        <div class="article-category">
-            <i class="fa fa-folder"></i>
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/categories/tech">Tech</a>
-            
-            
-        </div>
-        
-
-        
-        
-        <div class="article-category">
-            <i class="fa fa-tags"></i>
-            
-            <a class="article-category-link" href="https://suntong.github.io/blogs/tags/markdown">markdown</a>
-            
-            
-        </div>
-        
-    </div>
-</header>
-
-            <div class="article-entry" itemprop="articleBody">
-                <p>
-                    This note demonstrates some of what wordpress Markdown is capable of doing.
-                    <br>
-                </p>
-                <p class="article-more-link">
-                    <a href="https://suntong.github.io/blogs/2015/12/02/an-exhibit-of-markdown">
-                        Read more
-                    </a>
-                </p>
-            </div>
-            <footer class="article-footer">
-    <a data-url="https://suntong.github.io/blogs/2015/12/02/an-exhibit-of-markdown" data-id="3014366c1e65c1cf3609cb177e3dcea8" class="article-share-link">
-        Share
-    </a>
-    
-    <a href="https://suntong.github.io/blogs/2015/12/02/an-exhibit-of-markdown/#disqus_thread" class="article-comment-link">
-        Comments
-    </a>
-    
-</footer>
-
-        </div>
-    </article>
-    
-
-    <nav id="page-nav">
-
 </nav>
 
-</section>
 
+    </article>
+    <section id="comments">
+        <div id="disqus_thread">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'Xpt';
+    var disqus_identifier = 'https:\/\/suntong.github.io\/blogs\/2015\/12\/26\/creating-gpt-partitions-easily-on-the-command-line';
+    var disqus_title = 'Creating GPT partitions easily on the command line';
+    var disqus_url = 'https:\/\/suntong.github.io\/blogs\/2015\/12\/26\/creating-gpt-partitions-easily-on-the-command-line';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </section>
+
+</section>
 
     <aside id="sidebar">
     
@@ -582,7 +712,7 @@
             
             <li>
                 <div class="item-thumbnail">
-                    <a href="https://suntong.github.io/blogs/" class="thumbnail">
+                    <a href="https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
                     
@@ -605,7 +735,7 @@
             
             <li>
                 <div class="item-thumbnail">
-                    <a href="https://suntong.github.io/blogs/" class="thumbnail">
+                    <a href="https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
                     
@@ -628,7 +758,7 @@
             
             <li>
                 <div class="item-thumbnail">
-                    <a href="https://suntong.github.io/blogs/" class="thumbnail">
+                    <a href="https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
                     
@@ -651,7 +781,7 @@
             
             <li>
                 <div class="item-thumbnail">
-                    <a href="https://suntong.github.io/blogs/" class="thumbnail">
+                    <a href="https://suntong.github.io/blogs/2015/12/26/creating-gpt-partitions-easily-on-the-command-line" class="thumbnail">
                     
                         <span class="thumbnail-image thumbnail-none"></span>
                     
@@ -819,7 +949,7 @@
     <div id="toTop" class="fa fa-chevron-up"></div>
 </aside>
 
-    </div>
+</div>
 </div>
 
 <footer id="footer">
