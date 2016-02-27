@@ -38,7 +38,7 @@ sgdisk -n 4:823296:$ENDSECTOR -c 4:"Linux LVM" -t 4:8e00 $1
 sgdisk -p $1
 ```
 
-As the comparison, to [create disk partitions using `sfdisk`](https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks)), here are two examples:
+As the comparison, to [create disk partitions using `sfdisk`](https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks), here are two examples:
 
 - Three primary partitions: two of size 50MB and the rest:
 
@@ -190,7 +190,9 @@ Device        Start       End   Sectors  Size Type
 /dev/sdb8  25217280 732558330 707341051  2.7T Linux filesystem
 ```
 
+<a name="gui_vs_cli"/>
 ## Is it better?
+[ ](https://suntong.github.io/blogs/)
 
 I know most GUI lovers would laugh at my *silly* action. I just know them so well that I can imagine exactly what the conversion would be, as follows (**T** stands for "they", whereas **M** stands for me):
 
@@ -306,6 +308,6 @@ $ easygen -tf test/sgdisk-mp test/sgdisk
 
 Generating the `fstab` entries are as simple as above as well. Or, how about using `mkfs` to format each partition? Simple as well. 
 
-I'll explain more on [the easy to use universal code/text generator easygen](https://github.com/suntong/easygen) next. Meanwhile, you can check out what we have [covered](https://github.com/suntong001/blog/blob/master/GoOptP7-easygen.md) already  [before](https://sfxpt.wordpress.com/2015/07/04/easygen-is-now-coding-itself/), including [mock-up generation](https://sfxpt.wordpress.com/2015/07/10/easygen-for-mock-up/).
+I'[ll explain more](http://suntong.github.io/blogs/2016/01/01/easygen---easy-to-use-universal-code/text-generator/) on [the easy to use universal code/text generator easygen](https://github.com/suntong/easygen) next. Meanwhile, you can check out what we have [covered](https://github.com/suntong001/blog/blob/master/GoOptP7-easygen.md) already  [before](https://sfxpt.wordpress.com/2015/07/04/easygen-is-now-coding-itself/), including [mock-up generation](https://sfxpt.wordpress.com/2015/07/10/easygen-for-mock-up/).
 
 Stay tuned.
