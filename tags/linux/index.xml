@@ -51,7 +51,7 @@ sgdisk -n 4:823296:$ENDSECTOR -c 4:&amp;quot;Linux LVM&amp;quot; -t 4:8e00 $1
 sgdisk -p $1
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;As the comparison, to &lt;a href=&#34;https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks&#34;&gt;create disk partitions using &lt;code&gt;sfdisk&lt;/code&gt;&lt;/a&gt;), here are two examples:&lt;/p&gt;
+&lt;p&gt;As the comparison, to &lt;a href=&#34;https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks&#34;&gt;create disk partitions using &lt;code&gt;sfdisk&lt;/code&gt;&lt;/a&gt;, here are two examples:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Three primary partitions: two of size 50MB and the rest:&lt;/p&gt;
@@ -206,7 +206,11 @@ Device        Start       End   Sectors  Size Type
 /dev/sdb8  25217280 732558330 707341051  2.7T Linux filesystem
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;a name=&#34;gui_vs_cli&#34;/&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;is-it-better:9b45ead03ca9ede4573dfc02fa232f27&#34;&gt;Is it better?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I know most GUI lovers would laugh at my &lt;em&gt;silly&lt;/em&gt; action. I just know them so well that I can imagine exactly what the conversion would be, as follows (&lt;strong&gt;T&lt;/strong&gt; stands for &amp;ldquo;they&amp;rdquo;, whereas &lt;strong&gt;M&lt;/strong&gt; stands for me):&lt;/p&gt;
 
@@ -319,7 +323,7 @@ Device        Start       End   Sectors  Size Type
 
 &lt;p&gt;Generating the &lt;code&gt;fstab&lt;/code&gt; entries are as simple as above as well. Or, how about using &lt;code&gt;mkfs&lt;/code&gt; to format each partition? Simple as well.&lt;/p&gt;
 
-&lt;p&gt;I&amp;rsquo;ll explain more on &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;the easy to use universal code/text generator easygen&lt;/a&gt; next. Meanwhile, you can check out what we have &lt;a href=&#34;https://github.com/suntong001/blog/blob/master/GoOptP7-easygen.md&#34;&gt;covered&lt;/a&gt; already  &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/04/easygen-is-now-coding-itself/&#34;&gt;before&lt;/a&gt;, including &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/10/easygen-for-mock-up/&#34;&gt;mock-up generation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;&lt;a href=&#34;http://suntong.github.io/blogs/2016/01/01/easygen---easy-to-use-universal-code/text-generator/&#34;&gt;ll explain more&lt;/a&gt; on &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;the easy to use universal code/text generator easygen&lt;/a&gt; next. Meanwhile, you can check out what we have &lt;a href=&#34;https://github.com/suntong001/blog/blob/master/GoOptP7-easygen.md&#34;&gt;covered&lt;/a&gt; already  &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/04/easygen-is-now-coding-itself/&#34;&gt;before&lt;/a&gt;, including &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/10/easygen-for-mock-up/&#34;&gt;mock-up generation&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Stay tuned.&lt;/p&gt;
 </description>

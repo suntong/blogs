@@ -6,8 +6,311 @@
     <description>Recent content in Easygen on Sfxpt Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Dec 2015 00:04:56 -0500</lastBuildDate>
+    <lastBuildDate>Fri, 01 Jan 2016 22:13:12 -0500</lastBuildDate>
     <atom:link href="https://suntong.github.io/blogs/tags/easygen/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Easygen - Easy to use universal code/text generator</title>
+      <link>https://suntong.github.io/blogs/2016/01/01/easygen---easy-to-use-universal-code/text-generator</link>
+      <pubDate>Fri, 01 Jan 2016 22:13:12 -0500</pubDate>
+      
+      <guid>https://suntong.github.io/blogs/2016/01/01/easygen---easy-to-use-universal-code/text-generator</guid>
+      <description>
+
+&lt;!--
+# Easygen - Easy to use universal code/text generator
+[category Tech][tags go,programming,easygen,CLI]
+--&gt;
+
+&lt;p&gt;The focus today is &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;easygen&lt;/a&gt;, a universal code/text generator that is easy to use.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;dt&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;data-transformation:499476dd6f3e653703da63e222c1c5fc&#34;&gt;Data transformation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I love &lt;a href=&#34;https://en.wikipedia.org/wiki/LaTeX&#34;&gt;LaTeX&lt;/a&gt;, because I love the &lt;em&gt;concept&lt;/em&gt; of it, over the &lt;a href=&#34;http://acronyms.thefreedictionary.com/WYGIWYS&#34;&gt;WYGIWYS&lt;/a&gt; one, because in LaTeX, you describe things in terms of &lt;em&gt;what they are&lt;/em&gt;, instead of &lt;em&gt;how they look&lt;/em&gt;. Thus, you can change their look to whatever you want later at a single point, without going all over the places to change each one of them. Moreover, with this &lt;em&gt;single source&lt;/em&gt;, you can transform it into different presentation formats, be it &lt;code&gt;.ps&lt;/code&gt;, &lt;code&gt;.pdf&lt;/code&gt;, &lt;code&gt;.html&lt;/code&gt;, or even &lt;code&gt;.rtf&lt;/code&gt;. That&amp;rsquo;s the power of &lt;em&gt;separating the data definition and data presentation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Talking about &lt;em&gt;data transformation&lt;/em&gt;, we all know that &lt;a href=&#34;https://en.wikipedia.org/wiki/XSLT&#34;&gt;XSLT&lt;/a&gt; is used for transforming data defined in XML format into other formats or even documents. It&amp;rsquo;s a really good concept, but the reason that it never really takes off, I believe, is that it is really too cumbersome to use. I use &lt;a href=&#34;http://xmlstar.sourceforge.net/&#34;&gt;xmlstarlet&lt;/a&gt; instead to transform/convert my XML data. It is far more convenient than XSLT on the data presentation side; but still, on the data definition side, I still have to use XML, which is still not very convenient. Things will get far worse if the XML namespace is involved &amp;ndash; it&amp;rsquo;d be quite a struggle for me to get things right eventually.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;efdt&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;easygen-for-data-transformation:499476dd6f3e653703da63e222c1c5fc&#34;&gt;Easygen for data transformation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Welcome to the world of &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;easygen&lt;/a&gt;, in which
+data are defined far more conveniently (in &lt;a href=&#34;www.yaml.org/refcard.html&#34;&gt;YAML&lt;/a&gt; format); and the data transformation/presentation is far far more powerful (powered by &lt;a href=&#34;https://goo.gl/dz7yih&#34;&gt;Go Template&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h3 id=&#34;first-example:499476dd6f3e653703da63e222c1c5fc&#34;&gt;First example&lt;/h3&gt;
+
+&lt;p&gt;A simplest YAML example to define a list of colors:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Colors:
+  - red
+  - blue
+  - white
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A simply template to present them:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;The colors are: {{range .Colors}}{{.}}, {{end}}.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I.e., no-sweat to throw in a loop, piece of cake. The result is as expected:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ easygen test/list0 
+The colors are: red, blue, white, .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From the same data source, you can choose either the text template or the HTML template as the presentation format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ easygen test/list1
+The quoted colors are: &amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;white&amp;quot;, .
+
+$ easygen -html test/list1
+The quoted colors are: &amp;amp;#34;red&amp;amp;#34;, &amp;amp;#34;blue&amp;amp;#34;, &amp;amp;#34;white&amp;amp;#34;, .
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see, HTML specific elements ARE being taken care of, if you want them to.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-power-of-go-template:499476dd6f3e653703da63e222c1c5fc&#34;&gt;The power of Go template&lt;/h3&gt;
+
+&lt;p&gt;Now onto the real power of Go template &amp;ndash; the comma after &amp;ldquo;white&amp;rdquo; and before the ending period looks ugly, let&amp;rsquo;s remove it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ easygen test/listfunc1 
+red, blue, white.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;See? It&amp;rsquo;s gone. Now, how is that done? Simple, the data source is still the same, the template is now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{range $i, $color := .Colors}}{{$color}}{{if lt $i ($.Colors | len | minus1)}}, {{end}}{{end}}.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This simple template showcases Go template&amp;rsquo;s power of,&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;easy looping&lt;/li&gt;
+&lt;li&gt;use of built-in functions&lt;/li&gt;
+&lt;li&gt;use of custom defined function which is not in Go Template&lt;/li&gt;
+&lt;li&gt;and use &lt;code&gt;if/else&lt;/code&gt; for conditional output&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Yet, this has only touch a tip of the iceberg of &lt;a href=&#34;https://goo.gl/dz7yih&#34;&gt;Go Template&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;cg&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;code-generation:499476dd6f3e653703da63e222c1c5fc&#34;&gt;Code generation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m really found of code auto-generation. I&amp;rsquo;ve been using a tool called GSL for that purpose for more than 10 years. If anything is &lt;em&gt;structurally repetitive&lt;/em&gt;, I&amp;rsquo;ll use GSL to auto-generate them for me. Commandline processing is a very good example. Take a look at the following sample, you will notice lots of repetitive things:&lt;/p&gt;
+
+&lt;p&gt;The help text:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hd2usb $ $Revision: 1.1 $
+
+Root FS from HD to USB
+
+Usage: hd2usb [OPTIONS]...
+
+  -t, --max=n      max of sub-task execution level  (default=all)
+  -b, --min=n      min of sub-task execution level  (default=`0&#39;)
+  
+      --exclude=f  use the provided exclude file instead of default
+
+other options:
+  
+  -v, --verbose    be verbose, show commands run
+  -n, --no-exec    no execution, only show commands to run
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The shell commandline processing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# -*- shell-script -*-
+  
+#
+# shell script &#39;hd2usb&#39; command line parameters processing
+#
+# hd2usb $ $Revision: 1.1 $
+#
+# Root FS from HD to USB
+#
+  
+eval set -- `getopt \
+  -o +t:b:vn --long \
+    max:,min:,exclude:,verbose,no-exec \
+  -- &amp;quot;$@&amp;quot;`
+  
+_opt_min=&amp;quot;0&amp;quot;
+  
+while :; do
+  case &amp;quot;$1&amp;quot; in
+  --max|-t)            # max of sub-task execution level  (default=all)
+    shift; _opt_max=&amp;quot;$1&amp;quot;
+    ;;
+  --min|-b)            # min of sub-task execution level
+    shift; _opt_min=&amp;quot;$1&amp;quot;
+    ;;
+  # 
+  --exclude)           # use the provided exclude file instead of default
+    shift; _opt_exclude=&amp;quot;$1&amp;quot;
+    ;;
+  
+  # == other options
+  --verbose|-v)        # be verbose, show commands run
+    if [ &amp;quot;$_opt_verbose&amp;quot; ]; then _opt_verbose=`expr $_opt_verbose + 1`
+    else _opt_verbose=1; fi
+    VERBOSE=T
+    ;;
+  --no-exec|-n)        # no execution, only show commands to run
+    _opt_no_exec=T
+    NO_EXEC=&#39; -n&#39;
+    ;;
+  --) 
+    shift; break 
+    ;;
+  *) 
+    prog_abort &amp;quot;Internal getopt error ($1)!&amp;quot; 1
+    ;;
+  esac
+  shift
+done
+  
+[ &amp;quot;$_opt_debug&amp;quot; ] &amp;amp;&amp;amp; {
+  echo &amp;quot;[hd2usb] debug: _opt_max=$_opt_max&amp;quot;
+  echo &amp;quot;[hd2usb] debug: _opt_min=$_opt_min&amp;quot;
+  echo &amp;quot;[hd2usb] debug: _opt_exclude=$_opt_exclude&amp;quot;
+  echo &amp;quot;[hd2usb] debug: _opt_verbose=$_opt_verbose&amp;quot;
+  echo &amp;quot;[hd2usb] debug: _opt_no_exec=$_opt_no_exec&amp;quot;
+}
+  
+#if [ &amp;quot;$_opt_check_failed&amp;quot; ]; then 
+#  echo &amp;quot;Not all mandatory options are set.&amp;quot;
+#fi
+ 
+# End
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Because of those repetitive things are duplicated in two places, it&amp;rsquo;ll be a maintenance nightmare to keep them both in sync, if they are not coming from a common single source.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://grml.org/&#34;&gt;Grml&lt;/a&gt;&amp;rsquo;s &lt;a href=&#34;https://grml.org/grml-debootstrap/&#34;&gt;grml-debootstrap(8)&lt;/a&gt;&amp;rsquo;s &lt;a href=&#34;https://github.com/grml/grml-debootstrap/blob/master/cmdlineopts.clp&#34;&gt;command line parameter-processing&lt;/a&gt; was initially based on my automatic generated script. The problem is that I wasn&amp;rsquo;t able to open-source my code-generation script because GSL was release with a free for personal use commercial license. The newer version is now GPL, but it has loads of problems, no backward compatibility, and my script doesn&amp;rsquo;t work there. Besides, the help text is automatic generated by &lt;code&gt;gengetopt&lt;/code&gt;, but it&amp;rsquo;s configuration file is really awkward (so I auto-generate that as well), and it has not been actively maintained for quite long.&lt;/p&gt;
+
+&lt;p&gt;Thus, for years I&amp;rsquo;ve been looking for alternatives, and I&amp;rsquo;ve finally settled, with &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;easygen&lt;/a&gt;. Let&amp;rsquo;s see how easy for it to do code generation, e.g. how it can help command line parameter handling for Go code.&lt;/p&gt;
+
+&lt;p&gt;&lt;a name=&#34;efcg&#34;/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;easygen-for-code-generation:499476dd6f3e653703da63e222c1c5fc&#34;&gt;Easygen for code generation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In my earlier article on &lt;a href=&#34;https://sfxpt.wordpress.com/2015/06/25/viper-go-configuration-with-fangs/&#34;&gt;viper&lt;/a&gt;, there lists an example using &lt;code&gt;viper&lt;/code&gt; and &lt;code&gt;cobra&lt;/code&gt; together for configuration and command line parameter handling. If you take a closer look at the code,  from the repetitive structural code, we can extract the driving data into the following YAML definition:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cat test/commandlineCVFull.yaml
+CmdMain: mainCmd
+CmdPrefix: DISPATCH
+
+Options:
+  - Name: debug
+    Type: Bool
+    Value: false
+    Usage: Turn on debugging.
+
+  - Name: addr
+    Type: String
+    Value: &#39;&amp;quot;localhost:5002&amp;quot;&#39;
+    Usage: Address of the service.
+
+  - Name: smtp-addr
+    Type: String
+    Value: &#39;&amp;quot;localhost:25&amp;quot;&#39;
+    Usage: Address of the SMTP server.
+
+  - Name: smtp-user
+    Type: String
+    Value: &#39;&amp;quot;&amp;quot;&#39;
+    Usage: User for the SMTP server.
+
+  - Name: smtp-password
+    Type: String
+    Value: &#39;&amp;quot;&amp;quot;&#39;
+    Usage: Password for the SMTP server.
+
+  - Name: email-from
+    Type: String
+    Value: &#39;&amp;quot;noreply@abc.com&amp;quot;&#39;
+    Usage: The from email address.
+
+ConfigName: CommandLineCV
+
+ConfigPath:
+  - /tmp
+  - .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once that&amp;rsquo;s done, with the help of &lt;a href=&#34;https://github.com/suntong/easygen/blob/master/test/commandlineCVFull.tmpl&#34;&gt;&lt;code&gt;commandlineCVFull.tmpl&lt;/code&gt;&lt;/a&gt; template, auto code generation is a breeze:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;$ easygen test/commandlineCVFull 
+func init() {
+
+  viper.SetEnvPrefix(&amp;quot;DISPATCH&amp;quot;)
+  viper.AutomaticEnv()
+
+  /*
+
+    When AutomaticEnv called, Viper will check for an environment variable any
+    time a viper.Get request is made. It will apply the following rules. It
+    will check for a environment variable with a name matching the key
+    uppercased and prefixed with the EnvPrefix if set.
+
+  */
+
+  flags := mainCmd.Flags()
+
+  flags.Bool(&amp;quot;debug&amp;quot;, false, &amp;quot;Turn on debugging.&amp;quot;)
+  viper.BindPFlag(&amp;quot;debug&amp;quot;, flags.Lookup(&amp;quot;debug&amp;quot;))
+
+  flags.String(&amp;quot;addr&amp;quot;, &amp;quot;localhost:5002&amp;quot;, &amp;quot;Address of the service.&amp;quot;)
+  viper.BindPFlag(&amp;quot;addr&amp;quot;, flags.Lookup(&amp;quot;addr&amp;quot;))
+
+  flags.String(&amp;quot;smtp-addr&amp;quot;, &amp;quot;localhost:25&amp;quot;, &amp;quot;Address of the SMTP server.&amp;quot;)
+  viper.BindPFlag(&amp;quot;smtp-addr&amp;quot;, flags.Lookup(&amp;quot;smtp-addr&amp;quot;))
+
+  flags.String(&amp;quot;smtp-user&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;User for the SMTP server.&amp;quot;)
+  viper.BindPFlag(&amp;quot;smtp-user&amp;quot;, flags.Lookup(&amp;quot;smtp-user&amp;quot;))
+
+  flags.String(&amp;quot;smtp-password&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;Password for the SMTP server.&amp;quot;)
+  viper.BindPFlag(&amp;quot;smtp-password&amp;quot;, flags.Lookup(&amp;quot;smtp-password&amp;quot;))
+
+  flags.String(&amp;quot;email-from&amp;quot;, &amp;quot;noreply@abc.com&amp;quot;, &amp;quot;The from email address.&amp;quot;)
+  viper.BindPFlag(&amp;quot;email-from&amp;quot;, flags.Lookup(&amp;quot;email-from&amp;quot;))
+
+  // Viper supports reading from yaml, toml and/or json files. Viper can
+  // search multiple paths. Paths will be searched in the order they are
+  // provided. Searches stopped once Config File found.
+
+  viper.SetConfigName(&amp;quot;CommandLineCV&amp;quot;) // name of config file (without extension)
+
+  viper.AddConfigPath(&amp;quot;/tmp&amp;quot;)
+  viper.AddConfigPath(&amp;quot;.&amp;quot;)
+
+  err := viper.ReadInConfig()
+  if err != nil {
+    println(&amp;quot;No config file found. Using built-in defaults.&amp;quot;)
+  }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Boom! Done! Furthermore, the code looks really like handcrafted, instead of being automatically generated.&lt;/p&gt;
+
+&lt;p&gt;(FTR, I used space in my Go template because the &lt;a href=&#34;https://groups.google.com/d/msg/golang-nuts/9jKexxD19Js/1hhnfmD5ckAJ&#34;&gt;tabs were giving me headaches when putting the results into automatic testing&lt;/a&gt;. You can surely use tabs in your Go template, that&amp;rsquo;s not a problem at all, I was even able to make one work for Go automatic testing. Check out the &lt;a href=&#34;https://github.com/suntong/easygen/blob/master/test/commandlineCV.yaml&#34;&gt;previous example&lt;/a&gt;, &lt;a href=&#34;https://github.com/suntong/easygen/blob/master/test/commandlineCV.tmpl&#34;&gt;commandlineCV&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s all for today. Happy hacking.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Creating GPT partitions easily on the command line</title>
@@ -51,7 +354,7 @@ sgdisk -n 4:823296:$ENDSECTOR -c 4:&amp;quot;Linux LVM&amp;quot; -t 4:8e00 $1
 sgdisk -p $1
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;As the comparison, to &lt;a href=&#34;https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks&#34;&gt;create disk partitions using &lt;code&gt;sfdisk&lt;/code&gt;&lt;/a&gt;), here are two examples:&lt;/p&gt;
+&lt;p&gt;As the comparison, to &lt;a href=&#34;https://suntong.github.io/blogs/2015/12/25/use-sfdisk-to-partition-disks&#34;&gt;create disk partitions using &lt;code&gt;sfdisk&lt;/code&gt;&lt;/a&gt;, here are two examples:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Three primary partitions: two of size 50MB and the rest:&lt;/p&gt;
@@ -206,7 +509,11 @@ Device        Start       End   Sectors  Size Type
 /dev/sdb8  25217280 732558330 707341051  2.7T Linux filesystem
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;a name=&#34;gui_vs_cli&#34;/&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;is-it-better:9b45ead03ca9ede4573dfc02fa232f27&#34;&gt;Is it better?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://suntong.github.io/blogs/&#34;&gt; &lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;I know most GUI lovers would laugh at my &lt;em&gt;silly&lt;/em&gt; action. I just know them so well that I can imagine exactly what the conversion would be, as follows (&lt;strong&gt;T&lt;/strong&gt; stands for &amp;ldquo;they&amp;rdquo;, whereas &lt;strong&gt;M&lt;/strong&gt; stands for me):&lt;/p&gt;
 
@@ -319,7 +626,7 @@ Device        Start       End   Sectors  Size Type
 
 &lt;p&gt;Generating the &lt;code&gt;fstab&lt;/code&gt; entries are as simple as above as well. Or, how about using &lt;code&gt;mkfs&lt;/code&gt; to format each partition? Simple as well.&lt;/p&gt;
 
-&lt;p&gt;I&amp;rsquo;ll explain more on &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;the easy to use universal code/text generator easygen&lt;/a&gt; next. Meanwhile, you can check out what we have &lt;a href=&#34;https://github.com/suntong001/blog/blob/master/GoOptP7-easygen.md&#34;&gt;covered&lt;/a&gt; already  &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/04/easygen-is-now-coding-itself/&#34;&gt;before&lt;/a&gt;, including &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/10/easygen-for-mock-up/&#34;&gt;mock-up generation&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;&lt;a href=&#34;http://suntong.github.io/blogs/2016/01/01/easygen---easy-to-use-universal-code/text-generator/&#34;&gt;ll explain more&lt;/a&gt; on &lt;a href=&#34;https://github.com/suntong/easygen&#34;&gt;the easy to use universal code/text generator easygen&lt;/a&gt; next. Meanwhile, you can check out what we have &lt;a href=&#34;https://github.com/suntong001/blog/blob/master/GoOptP7-easygen.md&#34;&gt;covered&lt;/a&gt; already  &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/04/easygen-is-now-coding-itself/&#34;&gt;before&lt;/a&gt;, including &lt;a href=&#34;https://sfxpt.wordpress.com/2015/07/10/easygen-for-mock-up/&#34;&gt;mock-up generation&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Stay tuned.&lt;/p&gt;
 </description>

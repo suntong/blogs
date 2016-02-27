@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Writing on Sfxpt Blog</title>
+    <link>https://suntong.github.io/blogs/tags/writing/</link>
+    <description>Recent content in Writing on Sfxpt Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Feb 2016 23:53:53 -0500</lastBuildDate>
+    <atom:link href="https://suntong.github.io/blogs/tags/writing/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>The &#34;no-sugar&#34; style</title>
+      <link>https://suntong.github.io/blogs/2016/02/20/the-no-sugar-style</link>
+      <pubDate>Sat, 20 Feb 2016 23:53:53 -0500</pubDate>
+      
+      <guid>https://suntong.github.io/blogs/2016/02/20/the-no-sugar-style</guid>
+      <description>
+
+&lt;!--
+# The &#34;no-sugar&#34; style
+[category Tech][tags writing]
+--&gt;
+
+&lt;h2 id=&#34;situation:c52adce59b6d37a917783c66f4c083db&#34;&gt;Situation&lt;/h2&gt;
+
+&lt;p&gt;I&amp;rsquo;m the person who like concise, and don&amp;rsquo;t like the literature style stuffing in lots of irrelevant information to distract you from the main idea. So when I read a book called &lt;em&gt;&amp;ldquo;No bullshit Java&amp;rdquo;&lt;/em&gt;, I know that&amp;rsquo;s exactly the kind of writing style I prefer, both reading and writing.&lt;/p&gt;
+
+&lt;p&gt;However, that &lt;em&gt;&amp;ldquo;No bullshit&amp;rdquo;&lt;/em&gt; is kind of stronger than my tolerance. Is there a better phrase that can convey the idea that I don&amp;rsquo;t like those &amp;ldquo;bullshit&amp;rdquo;, but not as strong?&lt;/p&gt;
+
+&lt;p&gt;Example usage:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I read a very useful blog, but there are so many distraction there that it is very easy to miss a step. So I&amp;rsquo;m documenting it again in my (no-)____ style.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I want something more vivid than &amp;ldquo;concise&amp;rdquo; (or &amp;ldquo;distilled&amp;rdquo;), but not as colorful as &amp;ldquo;no bullshit&amp;rdquo;.&lt;/p&gt;
+
+&lt;h2 id=&#34;consideration:c52adce59b6d37a917783c66f4c083db&#34;&gt;Consideration&lt;/h2&gt;
+
+&lt;p&gt;For the situation like above, &lt;a href=&#34;http://ell.stackexchange.com/questions/82118&#34;&gt;most people would think&lt;/a&gt; that &amp;ldquo;&lt;em&gt;no nonsense&lt;/em&gt;&amp;rdquo; is the best phrase to describe it. However, I&amp;rsquo;m still hesitate to use it for the above blog-rewriting case, because if I use it, it&amp;rsquo;d imply the other blogger has lots of &amp;ldquo;&lt;em&gt;nonsense&lt;/em&gt;&amp;rdquo; in his/her blog. That&amp;rsquo;s not what I really meant. Many people like to expose their &amp;ldquo;life long&amp;rdquo; stories before they start talking business. That&amp;rsquo;s their style. Although I really don&amp;rsquo;t like that, I wouldn&amp;rsquo;t call them &amp;ldquo;&lt;em&gt;nonsense&lt;/em&gt;&amp;rdquo; for &lt;em&gt;their&lt;/em&gt; blogs (but will do for mine).&lt;/p&gt;
+
+&lt;h2 id=&#34;my-choice:c52adce59b6d37a917783c66f4c083db&#34;&gt;My Choice&lt;/h2&gt;
+
+&lt;p&gt;Now, what&amp;rsquo;s my final choice?&lt;/p&gt;
+
+&lt;p&gt;First, let me precisely define what I&amp;rsquo;m trying to do (or describe) &amp;ndash; I want to leave out any &lt;em&gt;frivolous&lt;/em&gt; distraction from my writing. The &lt;a href=&#34;http://www.oxforddictionaries.com/us/definition/english/frivolous&#34;&gt;number one meaning of frivolous from OED&lt;/a&gt; is &amp;ldquo;&lt;em&gt;not having any serious purpose or value&lt;/em&gt;&amp;rdquo;. Those are the things I want to eliminate, so that my writing can be &lt;em&gt;succinct&lt;/em&gt;, meaning &amp;ldquo;briefly and clearly expressed, especially of something written or spoken&amp;rdquo; &lt;a href=&#34;http://www.oxforddictionaries.com/us/definition/english/succinct&#34;&gt;from OED&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If I&amp;rsquo;m purely talking about my writing, I will surely to use &amp;ldquo;&lt;em&gt;no nonsense&lt;/em&gt;&amp;rdquo; to describe it.&lt;/li&gt;
+&lt;li&gt;However, if I&amp;rsquo;m talking about condensing another article, which has many frivolous distractions, into succinct writing, I&amp;rsquo;ll call it &lt;strong&gt;&lt;em&gt;&amp;ldquo;no-sugar&amp;rdquo;&lt;/em&gt;&lt;/strong&gt; style rewrite, because there is another person involved.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The phrase &lt;em&gt;&amp;ldquo;no-sugar&amp;rdquo;&lt;/em&gt; has a computer technical meaning of no-frivolous these days &lt;a href=&#34;http://ell.stackexchange.com/a/82120/5857&#34;&gt;among a small population&lt;/a&gt;. Although it is still not widely heard/known, I hope it can get accepted by a broader audience. Thus I&amp;rsquo;m promoting the phrase now, because this the least condescending and most neutral way to describe it. Just like the coffee, no-sugar means just the coffee, nothing else! I like the expression.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
